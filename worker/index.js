@@ -47,6 +47,16 @@ const json = (status, body) =>
   new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
 
 /**
+ * Lets pages on other origins read a public response. Only for what anyone may read without
+ * signing in: no credentials, so `*` is enough
+ * @param {Response} response
+ */
+function withCors(response) {
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  return response;
+}
+
+/**
  * A refusal from the game, as an HTTP status
  * @param {{ error?: string, message?: string }} result
  */
@@ -85,7 +95,8 @@ export default {
     }
     if (parts[0] === "api" && parts[1] === "games" && parts.length === 3 && method === "GET") {
       const snapshot = await game(env, parts[2]).snapshot();
-      return snapshot ? json(200, snapshot) : json(404, { error: "not_found" });
+      // Public, so any page may read it: the game pages on jrik.dev, a local copy of them
+      return withCors(snapshot ? json(200, snapshot) : json(404, { error: "not_found" }));
     }
     if (parts[0] === "files" && parts.length === 2 && method === "GET") {
       const object = /^[0-9a-f]{64}$/.test(parts[1]) ? await env.FILES.get(parts[1]) : null;
