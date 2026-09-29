@@ -57,18 +57,13 @@ namespace_id = "2005"
 simple = { limit = 60, period = 60 }
 
 # The private test server at bingo-staging.jrik.dev: its own storage, and only the players in the
-# ALLOWED_STEAMIDS secret can sign in or see anything. It serves the web pages too, from the folder
-# given when deploying: npx wrangler deploy --env staging --assets <folder with bingo/ in it>
+# ALLOWED_STEAMIDS secret can sign in or see anything. It serves the web pages too, from the
+# bingo-pages-staging bucket (README: The private test server)
 # Secrets (npx wrangler secret put <NAME> --env staging): ALLOWED_STEAMIDS, STEAM_API_KEY
 [env.staging]
 name = "bxt-bingo-staging"
 routes = [{ pattern = "bingo-staging.jrik.dev", custom_domain = true }]
 vars = { PRIVATE = "true" }
-
-[env.staging.assets]
-binding = "ASSETS"
-# The Worker checks who is signed in before any page is shown
-run_worker_first = true
 
 [[env.staging.durable_objects.bindings]]
 name = "GAME"
@@ -81,6 +76,11 @@ database_name = "bingo-staging"
 [[env.staging.r2_buckets]]
 binding = "FILES"
 bucket_name = "bingo-files-staging"
+
+# The web pages, served by the Worker after it checks who is signed in
+[[env.staging.r2_buckets]]
+binding = "PAGES"
+bucket_name = "bingo-pages-staging"
 
 [[env.staging.ratelimits]]
 name = "LOGIN_LIMIT"

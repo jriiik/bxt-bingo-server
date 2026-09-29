@@ -6,7 +6,8 @@
 //   GET  /api/games/<id>          a snapshot of a game
 //   GET  /files/<sha256>          saves and other files (production serves them from assets.jrik.dev)
 // The web pages' routes (Steam sign-in, making and joining games, the host's actions) are in web.js
-// With an ASSETS binding (the pages, e.g. on the private test server), everything else is a page
+// With an ASSETS binding or a PAGES bucket (the pages, e.g. on the private test server), everything
+// else is a page
 // Dev routes, only with DEV_ROUTES=true (`npm run dev`), standing in for the pages and Steam login:
 //   POST /dev/games                          create a game: { tiles, settings, ruleset }
 //   POST /dev/games/<id>/players             add a player: { name, team, steamid64? }, gives a join code
@@ -33,7 +34,8 @@ export { GameRoom } from "./game-room.js";
  * @property {DurableObjectNamespace<import("./game-room.js").GameRoom>} GAME
  * @property {R2Bucket} FILES
  * @property {D1Database} DB Players, sessions, join codes, games (db.js)
- * @property {Fetcher} [ASSETS] The web pages, when this Worker serves them
+ * @property {Fetcher} [ASSETS] The web pages, when this Worker serves them as static assets
+ * @property {R2Bucket} [PAGES] Or the web pages in a bucket, by path (e.g. `bingo/game/index.html`)
  * @property {string} [DEV_ROUTES]
  * @property {string} [STEAM_API_KEY] Secret: Steam names and avatars
  * @property {string} [PRIVATE] "true": only ALLOWED_STEAMIDS may sign in and see anything
@@ -145,15 +147,48 @@ export default {
     if (parts[0] === "dev" && env.DEV_ROUTES === "true") {
       return devRoute(request, env, parts.slice(1), now);
     }
-    if (env.ASSETS && method === "GET") {
+    if ((env.ASSETS || env.PAGES) && method === "GET") {
       if (path === "/") {
         return Response.redirect(`${url.origin}/bingo/`, 302);
       }
-      return env.ASSETS.fetch(request);
+      return env.ASSETS ? env.ASSETS.fetch(request) : servePage(env.PAGES, url);
     }
     return json(404, { error: "not_found" });
   },
 };
+
+/**
+ * A page from the PAGES bucket: `/bingo/game/` is `bingo/game/index.html`, and `/bingo/game`
+ * goes to `/bingo/game/`. Pages can be updated by putting new files in the bucket, no deploy
+ * @param {R2Bucket} bucket
+ * @param {URL} url
+ */
+async function servePage(bucket, url) {
+  // Page paths are plain lowercase names, so anything encoded is simply not found
+  const path = url.pathname;
+  const notFound = () => new Response("Not found", { status: 404, headers: { "Content-Type": "text/plain" } });
+  if (!/^(\/[a-z0-9_-]+)*\/?([a-z0-9_-]+\.html)?$/.test(path)) {
+    return notFound();
+  }
+  if (!path.endsWith("/") && !path.endsWith(".html")) {
+    const folder = await bucket.head(`${path.slice(1)}/index.html`);
+    return folder ? Response.redirect(`${url.origin}${path}/${url.search}`, 301) : notFound();
+  }
+  const key = path.slice(1) + (path.endsWith("/") ? "index.html" : "");
+  const object = await bucket.get(key);
+  if (!object) {
+    return notFound();
+  }
+  return new Response(object.body, {
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "no-cache",
+      ETag: object.httpEtag,
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "same-origin",
+    },
+  });
+}
 
 /**
  * BXT's socket: a join code or a session token picks the game and the player
