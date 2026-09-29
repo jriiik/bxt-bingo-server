@@ -151,6 +151,16 @@ export async function endSession(request, db) {
   }
 }
 
+/**
+ * A path on this site to send the browser back to: one slash, then printable characters only.
+ * Browsers drop tabs and line breaks from addresses, so `/<tab>/evil.example` would become
+ * `//evil.example`, another site
+ * @param {string} value
+ */
+export function isLocalPath(value) {
+  return /^\/(?![/\\])[\x21-\x7e]*$/.test(value);
+}
+
 // Pages that may call the routes: this Worker's own (it can serve them) and PAGE_ORIGINS,
 // e.g. `https://jrik.dev`, or `http://localhost:8765` for a local copy
 

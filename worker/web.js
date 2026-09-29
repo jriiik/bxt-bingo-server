@@ -27,6 +27,7 @@ import {
   cookie,
   endSession,
   isAllowed,
+  isLocalPath,
   isPageOrigin,
   isPrivate,
   randomToken,
@@ -206,7 +207,7 @@ function safeReturn(request, env, value) {
   if (!value || value.length > 512) {
     return fallback;
   }
-  if (/^\/(?![/\\])/.test(value)) {
+  if (isLocalPath(value)) {
     return value;
   }
   try {
@@ -362,6 +363,10 @@ function refused(result) {
  * @param {Request} request
  */
 async function readBody(request) {
+  // Refused before reading when the size is given; bodies sent in chunks are measured after
+  if (Number(request.headers.get("Content-Length") ?? 0) > MAX_BODY_BYTES) {
+    return null;
+  }
   const text = await request.text();
   if (text.length > MAX_BODY_BYTES) {
     return null;
@@ -589,7 +594,12 @@ export function page(status, title, line, setCookie, signInReturn) {
 </style></head>
 <body><main><h1>${escapeHtml(title)}</h1><p>${escapeHtml(line)}</p>${link}</main></body></html>`;
   /** @type {Record<string, string>} */
-  const headers = { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" };
+  const headers = {
+    "Content-Type": "text/html; charset=utf-8",
+    "Cache-Control": "no-store",
+    "Content-Security-Policy": "frame-ancestors 'none'",
+    "X-Frame-Options": "DENY",
+  };
   if (setCookie) {
     headers["Set-Cookie"] = setCookie;
   }

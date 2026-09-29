@@ -22,7 +22,7 @@ import scripted from "../rules/won-scripted.json";
 import scriptless from "../rules/won-scriptless.json";
 import { JOIN_HEADER, SESSION_HEADER } from "../src/protocol/index.js";
 import { checkHandicapPresets } from "../src/rules/handicaps.js";
-import { SESSION_COOKIE, SESSION_LIFETIME_MS, cookie, isPageOrigin, isPrivate, signedIn, startSession } from "./auth.js";
+import { SESSION_COOKIE, SESSION_LIFETIME_MS, cookie, isLocalPath, isPageOrigin, isPrivate, signedIn, startSession } from "./auth.js";
 import { issueCode, redeemCode } from "./codes.js";
 import { newGameId, newSessionToken, sha256Hex } from "./secrets.js";
 import { clientIp, page, webRoute } from "./web.js";
@@ -89,7 +89,11 @@ const game = (env, id) => env.GAME.get(env.GAME.idFromName(id));
 
 // Paths that work without signing in on the private test server: BXT's socket (join codes and
 // session tokens are its credentials), the files it downloads, signing in, and the dev routes
-const OPEN_PATHS = ["bxt", "files", "auth", "dev"];
+// when they're on
+const OPEN_PATHS = ["bxt", "files", "auth"];
+
+// Game ids are 16 hex digits (newGameId). Anything else would make a Durable Object for nothing
+const GAME_ID = /^[0-9a-f]{16}$/;
 
 export default {
   /**
@@ -108,7 +112,8 @@ export default {
     }
 
     const me = await signedIn(request, env, now);
-    if (isPrivate(env) && !me && !OPEN_PATHS.includes(parts[0])) {
+    const open = OPEN_PATHS.includes(parts[0]) || (parts[0] === "dev" && env.DEV_ROUTES === "true");
+    if (isPrivate(env) && !me && !open) {
       if (parts[0] === "api" || parts[0] === "ws") {
         return json(401, { error: "sign_in", message: "this is a private test server: sign in through Steam" });
       }
@@ -118,6 +123,9 @@ export default {
     const web = await webRoute(request, env, me, now);
     if (web) {
       return web;
+    }
+    if ((parts[0] === "ws" || parts[0] === "api") && parts[1] === "games" && parts.length === 3 && method === "GET" && !GAME_ID.test(parts[2])) {
+      return withCors(json(404, { error: "not_found" }));
     }
     if (parts[0] === "ws" && parts[1] === "games" && parts.length === 3 && method === "GET") {
       if (request.headers.get("Upgrade")?.toLowerCase() !== "websocket") {
@@ -186,6 +194,9 @@ async function servePage(bucket, url) {
       ETag: object.httpEtag,
       "X-Content-Type-Options": "nosniff",
       "Referrer-Policy": "same-origin",
+      // Other sites can't show the pages in a frame and trick a host into clicking
+      "Content-Security-Policy": "frame-ancestors 'none'",
+      "X-Frame-Options": "DENY",
     },
   });
 }
@@ -256,7 +267,10 @@ async function devRoute(request, env, parts, now) {
     const back = url.searchParams.get("return") ?? "/bingo/";
     return new Response(null, {
       status: 302,
-      headers: { Location: /^(\/(?![/\\])|http:\/\/(localhost|127\.0\.0\.1)[:/])/.test(back) ? back : "/bingo/", "Set-Cookie": cookie(SESSION_COOKIE, token, SESSION_LIFETIME_MS) },
+      headers: {
+        Location: isLocalPath(back) || /^http:\/\/(localhost|127\.0\.0\.1)[:/][\x21-\x7e]*$/.test(back) ? back : "/bingo/",
+        "Set-Cookie": cookie(SESSION_COOKIE, token, SESSION_LIFETIME_MS),
+      },
     });
   }
 

@@ -4,7 +4,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import { cookie, isAllowed, isPageOrigin, isPrivate, readCookie, sameSecret, signedIn, startSession } from "../worker/auth.js";
+import { cookie, isAllowed, isLocalPath, isPageOrigin, isPrivate, readCookie, sameSecret, signedIn, startSession } from "../worker/auth.js";
 import { CODE_LIFETIME_MS, issueCode, redeemCode } from "../worker/codes.js";
 import { checkSettings } from "../worker/settings.js";
 import { STEAM_OPENID, loginUrl, playerSummary, verifyLogin } from "../worker/steam.js";
@@ -204,6 +204,19 @@ test("pages that may call the routes", () => {
   assert.ok(!isPageOrigin(request, env, "http://localhost:8765"));
   assert.ok(isPageOrigin(request, { DEV_ROUTES: "true" }, "http://localhost:8765"));
   assert.ok(isPageOrigin(request, { DEV_ROUTES: "true" }, "null"));
+});
+
+test("after signing in, only paths on this site", () => {
+  assert.ok(isLocalPath("/bingo/"));
+  assert.ok(isLocalPath("/bingo/game/?id=0123456789abcdef&view=stream"));
+  assert.ok(!isLocalPath("//evil.example/"));
+  assert.ok(!isLocalPath("/\\evil.example/"));
+  // Browsers drop tabs and line breaks from addresses: these would be //evil.example
+  assert.ok(!isLocalPath("/\t/evil.example/"));
+  assert.ok(!isLocalPath("/\n/evil.example/"));
+  assert.ok(!isLocalPath("/ /evil.example/"));
+  assert.ok(!isLocalPath("https://evil.example/"));
+  assert.ok(!isLocalPath(""));
 });
 
 test("sessions: the cookie's token finds the player until it expires", { skip: !sqlite && "needs node:sqlite" }, async () => {
