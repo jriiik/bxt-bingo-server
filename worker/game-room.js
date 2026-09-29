@@ -8,6 +8,7 @@ import { DurableObject } from "cloudflare:workers";
 
 import { CLOSE, PING_TEXT, PONG_TEXT, parseClientMessage } from "../src/protocol/index.js";
 import { DEFAULT_FILES_URL, Room, RoomError } from "../src/room/index.js";
+import { gameRecord, writeGameRecord } from "./records.js";
 import { sha256Hex } from "./secrets.js";
 
 /**
@@ -41,6 +42,10 @@ export class GameRoom extends DurableObject {
   storedLog = 0;
   /** A void changed old log entries, so the whole log is written again */
   rewriteLog = false;
+  /** The game's record last written to D1, so changes that don't alter it write nothing */
+  recorded = "";
+  /** D1 writes, one after another, so an older record never lands after a newer one */
+  recording = Promise.resolve();
 
   /**
    * @param {DurableObjectState} ctx
@@ -366,6 +371,33 @@ export class GameRoom extends DurableObject {
         await this.ctx.storage.setAlarm(at);
       }
     }
+    await this.#record(now);
+  }
+
+  /**
+   * Keeps the game's row, its players and, once it's finished, its results up to date in D1
+   * (records.js), for the players' game lists and the leaderboards. A failed write is tried
+   * again at the next change
+   * @param {number} now
+   */
+  async #record(now) {
+    const db = /** @type {{ DB?: D1Database }} */ (this.env).DB;
+    if (!db || !this.room) {
+      return;
+    }
+    const record = gameRecord(this.room, now);
+    const key = JSON.stringify(record);
+    if (key === this.recorded) {
+      return;
+    }
+    this.recorded = key;
+    this.recording = this.recording
+      .then(() => writeGameRecord(db, record))
+      .catch((e) => {
+        this.recorded = "";
+        console.error("the game's record wasn't written to D1", e);
+      });
+    await this.recording;
   }
 
   /**

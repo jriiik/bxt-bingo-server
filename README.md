@@ -3,7 +3,7 @@
 The backend for BXT Bingo: a Trackmania-Bingo-style community game for Half-Life speedrunning,
 played in-game through [BunnymodXT](https://github.com/YaLTeR/BunnymodXT) with web pages on
 jrik.dev. It runs on Cloudflare: a Worker, one Durable Object per game, and a D1 database for
-players, sign-ins and join codes. Everything runs locally too. The full design lives in `BINGO.md`.
+players, sign-ins, join codes and the games played. Everything runs locally too. The full design lives in `BINGO.md`.
 The web side's is `BINGO-WEB.md`, kept by the frontend dev.
 
 This has been done mostly with AI as you can probably tell from how things are formatted, but it's been
@@ -19,7 +19,7 @@ bugs and things to be polished, but just letting you know that it's not a one-pr
 | `src/room` | One whole game around the rules: players, lobby, manifests, attempts, result checks and flags, board snapshots, events. Pure logic too: every call returns what to send and store. |
 | `src/rules` | Handicaps: applying the presets from `rules/handicaps.json` to a player's ruleset. |
 | `worker/` | The Worker (routes) and the game Durable Object (`GameRoom`): sockets with hibernation, storage, alarms. |
-| `worker/web.js` | The routes the web pages call (§ Web routes): Steam sign-in, making and joining games, the host's actions. With `steam.js` (checking Steam's sign-in answers, names and avatars), `auth.js` (sessions in a cookie, the private test server's allowlist, which pages may call), `codes.js` (join codes), `settings.js` (checking a host's lobby options) and `db.js` (the D1 tables, made on first use). |
+| `worker/web.js` | The routes the web pages call (§ Web routes): Steam sign-in, making and joining games, the host's actions. With `steam.js` (checking Steam's sign-in answers, names and avatars), `auth.js` (sessions in a cookie, the private test server's allowlist, which pages may call), `codes.js` (join codes), `settings.js` (checking a host's lobby options), `records.js` (each game in D1: its state, ending, players and results) and `db.js` (the D1 tables, made on first use). |
 | `rules/` | The standard rulesets made from the community's whitelist sheet, the handicap presets, and the list of extra files. |
 | `files/` | Extra files the game downloads, like the win sound, as listed in `rules/extra-files.json`. |
 | `boards/` | Test boards: BXT's offline manifests, also used by `dev-game create`. |
@@ -42,8 +42,8 @@ npm test
 ```
 
 The code is plain JavaScript with JSDoc types. `jsconfig.json` makes editors like VS Code check
-them. The tests of sessions and join codes use `node:sqlite` in place of D1, from Node 22.13; on
-older versions they're skipped.
+them. The tests of sessions, join codes and game records use `node:sqlite` in place of D1, from Node
+22.13; on older versions they're skipped.
 
 ## Playing locally
 
@@ -184,11 +184,18 @@ need a signed-in player and must come from the pages: this Worker's own origin, 
 | `GET /auth/steam/callback` | Steam's answer: it must come back to the browser that asked (a cookie), Steam confirms it (`check_authentication`), each answer works once, then the player is stored (Steam name and avatar with `STEAM_API_KEY`) and signed in with a session cookie (`__Host-`, `HttpOnly`, `Secure`, `SameSite=Lax`; only its hash is stored). |
 | `POST /auth/logout` | Ends the session. |
 | `GET /api/me[?game=<id>]` | Who is signed in, whether this is a private server, and for a game: whether they host it and their lobby entry. |
+| `GET /api/me/games` | The 50 latest games they host or are in: state, how it ended, tiles per team, board, players, their team. |
 | `GET /api/boards` | The boards a game can be made with. The test boards, until the segment catalog exists. |
 | `POST /api/games` | `{ board, settings }`: makes a game, hosted by whoever made it. The settings are checked key by key (`worker/settings.js`). |
 | `POST /api/games/<id>/join` | `{ team }` (`red`, `blue` or `null`): joins, or changes team before the start, and gives a join code for `bxt_bingo_join`. |
 | `POST /api/games/<id>/code` | A new join code for a player of the game. |
 | `POST /api/games/<id>/host/<action>` | The host only: `start` `{ force }`, `end`, `move` `{ steamid64, team }`, `kick` `{ steamid64, ban }`, `unban`, `lock` `{ locked }`, `handicaps` `{ steamid64, handicaps }`, `void` / `accept` `{ attempt_id }`. |
+
+Games made through these routes are kept in D1 as they go (`worker/records.js`): the game writes its
+row (state, start and end, winner, how it ended, tiles per team, which leaderboards it counts for)
+and its players after each change that alters them, and once it's finished every result (voided and
+flagged ones marked), for the game lists now and the leaderboards later. A void that reopens a game
+sets it back to running until it ends again. Games made with the dev routes aren't kept.
 
 Join codes are in D1: single use, 10 minutes, one player, stored as hashes. Typing codes into BXT
 is rate limited per address, as are sign-ins, joins, new games and host actions (per player).

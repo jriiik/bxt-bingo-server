@@ -1,11 +1,18 @@
-// The web side's pieces of the Worker: Steam sign-in checks, settings checks, sessions and join
-// codes (on an in-memory SQLite standing in for D1)
+// The web side's pieces of the Worker: Steam sign-in checks, settings checks, sessions, join
+// codes and game records (on an in-memory SQLite standing in for D1)
 
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { test } from "node:test";
+
+import { ALL_TILES } from "../src/protocol/index.js";
+import { Room } from "../src/room/index.js";
+import { checkHandicapPresets } from "../src/rules/handicaps.js";
 
 import { cookie, isAllowed, isLocalPath, isPageOrigin, isPrivate, readCookie, sameSecret, signedIn, startSession } from "../worker/auth.js";
 import { CODE_LIFETIME_MS, issueCode, redeemCode } from "../worker/codes.js";
+import { ensureSchema } from "../worker/db.js";
+import { gameRecord, playerGames, writeGameRecord } from "../worker/records.js";
 import { checkSettings } from "../worker/settings.js";
 import { STEAM_OPENID, loginUrl, playerSummary, verifyLogin } from "../worker/steam.js";
 
@@ -243,4 +250,151 @@ test("join codes work once, for 10 minutes, typed in any case", { skip: !sqlite 
   const late = await issueCode(db, "0123456789abcdef", PLAYER, NOW);
   assert.deepEqual(await redeemCode(db, late, NOW + CODE_LIFETIME_MS + 1), { error: "code_expired" });
   assert.deepEqual(await redeemCode(db, "AAAA-AA", NOW), { error: "bad_code" });
+});
+
+// Game records
+
+const scriptless = JSON.parse(readFileSync(new URL("../rules/won-scriptless.json", import.meta.url), "utf8"));
+const presets = checkHandicapPresets(JSON.parse(readFileSync(new URL("../rules/handicaps.json", import.meta.url), "utf8")));
+const RED = "76561190000000021";
+const BLUE = "76561190000000022";
+const SPECTATOR = "76561190000000023";
+const T0 = 1_800_000_000_000;
+const MIN_MS = 60_000;
+
+/** @param {number} i */
+const sha = (i) => i.toString(16).padStart(64, "0");
+
+/** A room with red and blue ready, and a player off the teams */
+function recordedRoom(/** @type {string} */ id) {
+  const tiles = ALL_TILES.map((tile, i) => ({
+    id: tile,
+    segment: {
+      id: `seg-${i}`,
+      label: `S${i}`,
+      chapter: "Test",
+      saves: { won: { sha256: sha(i + 1), size: 1000 } },
+      start: { type: /** @type {const} */ ("trigger"), corners: /** @type {[[number, number, number], [number, number, number]]} */ ([[0, 0, 0], [1, 1, 1]]) },
+      end: { corners: /** @type {[[number, number, number], [number, number, number]]} */ ([[2, 2, 2], [3, 3, 3]]) },
+      reference_time_ms: 10_000,
+    },
+  }));
+  const room = new Room({ id, settings: {}, tiles, ruleset: scriptless, handicapPresets: presets });
+  for (const [player, team] of /** @type {const} */ ([[RED, "red"], [BLUE, "blue"]])) {
+    room.addPlayer({ steamid64: player, name: team, team });
+    room.setConnected(player, true);
+    room.hello(player, { type: "hello", protocol: 1, bxt_version: "t", engine_build: "won", dll_sha256: null, steamid64: null }, "tok", T0 - 10_000);
+    room.onMessage(player, { type: "ready", manifest_hash: room.manifestFor(player).manifest_hash }, T0 - 10_000);
+  }
+  room.addPlayer({ steamid64: SPECTATOR, name: "watching", team: null });
+  let next = 1;
+  /**
+   * A run finishing `at` ms after T0
+   * @param {string} player
+   * @param {string} tile
+   * @param {number} at
+   */
+  const run = (player, tile, at) => {
+    const attempt_id = `00000000-0000-4000-8000-${String(next++).padStart(12, "0")}`;
+    room.onMessage(player, { type: "attempt_started", attempt_id, tile }, T0 + at - 9800);
+    const result = { type: /** @type {const} */ ("attempt_result"), attempt_id, tile, time_ms: 9800, server_time_delta_ms: 9800, frames: 100, real_ms: 9800, load_ms: 0, save_sha256: sha(ALL_TILES.indexOf(tile) + 1), ruleset_ok: true, demo: null };
+    room.onMessage(player, result, T0 + at);
+    return attempt_id;
+  };
+  return { room, run };
+}
+
+/**
+ * @param {any} db
+ * @param {string} sql
+ * @param {unknown[]} args
+ */
+const rows = async (db, sql, ...args) => (await db.prepare(sql).bind(...args).all()).results;
+
+test("a game's record: lobby, running, finished with its results, reopened by a void", { skip: !sqlite && "needs node:sqlite" }, async () => {
+  const db = fakeD1();
+  await ensureSchema(db);
+  await db.prepare("INSERT INTO games (id, host, created, board, ruleset) VALUES (?, ?, ?, ?, ?)").bind("0123456789abcdef", RED, T0 - MIN_MS, "scriptless", "scriptless").run();
+  const { room, run } = recordedRoom("0123456789abcdef");
+
+  let record = gameRecord(room, T0 - 10_000);
+  assert.equal(record.state, "lobby");
+  assert.equal(record.started, null);
+  assert.equal(record.results, null);
+  await writeGameRecord(db, record);
+  assert.deepEqual(
+    (await rows(db, "SELECT steamid64, team, handicaps FROM game_players ORDER BY steamid64")).map((/** @type {any} */ r) => ({ ...r })),
+    [
+      { steamid64: RED, team: "red", handicaps: "[]" },
+      { steamid64: BLUE, team: "blue", handicaps: "[]" },
+      { steamid64: SPECTATOR, team: null, handicaps: "[]" },
+    ],
+  );
+
+  room.start(T0 - 5000, false);
+  room.tick(T0);
+  run(BLUE, "C3", 15_000);
+  let last = "";
+  for (const [i, tile] of ["A1", "B1", "C1", "D1", "E1"].entries()) {
+    last = run(RED, tile, 20_000 + i * 20_000);
+  }
+  record = gameRecord(room, T0 + 200_000);
+  assert.equal(record.state, "finished");
+  assert.equal(record.started, T0);
+  assert.equal(record.finished, T0 + 100_000);
+  assert.deepEqual([record.winner, record.reason, record.line], ["red", "line", "A1 B1 C1 D1 E1"]);
+  assert.deepEqual(record.tiles, { red: 5, blue: 1 });
+  assert.deepEqual(record.leaderboards, { players: "standard", segments: "scriptless" });
+  await writeGameRecord(db, record);
+  const game = /** @type {any} */ (await db.prepare("SELECT * FROM games").first());
+  assert.deepEqual(
+    [game.state, game.started, game.finished, game.winner, game.reason, game.line, game.red_tiles, game.blue_tiles, game.player_board, game.segment_board],
+    ["finished", T0, T0 + 100_000, "red", "line", "A1 B1 C1 D1 E1", 5, 1, "standard", "scriptless"],
+  );
+  const results = await rows(db, "SELECT steamid64, tile, segment, time_ms, verdict, voided, flagged, accepted FROM results ORDER BY at_ms");
+  assert.equal(results.length, 6);
+  assert.deepEqual({ ...results[0] }, { steamid64: BLUE, tile: "C3", segment: "seg-12", time_ms: 9800, verdict: "captured", voided: 0, flagged: 0, accepted: 0 });
+
+  // The host voids the winning run: the game goes on, and its results wait for the new ending
+  room.void(last, T0 + 210_000);
+  await writeGameRecord(db, gameRecord(room, T0 + 210_000));
+  const reopened = /** @type {any} */ (await db.prepare("SELECT state, finished, winner FROM games").first());
+  assert.deepEqual({ ...reopened }, { state: "running", finished: null, winner: null });
+  assert.equal((await rows(db, "SELECT * FROM results")).length, 0);
+});
+
+test("a game the host ends in the lobby never ran; games made without the pages aren't recorded", { skip: !sqlite && "needs node:sqlite" }, async () => {
+  const db = fakeD1();
+  await ensureSchema(db);
+  const { room } = recordedRoom("fedcba9876543210");
+  room.end(T0);
+  const record = gameRecord(room, T0);
+  assert.deepEqual([record.state, record.started, record.finished, record.winner, record.reason], ["finished", null, null, null, "host_ended"]);
+  // No games row (a dev game): nothing is written for it
+  await writeGameRecord(db, record);
+  assert.equal((await rows(db, "SELECT * FROM game_players")).length, 0);
+});
+
+test("a player's games: the ones they host or are in, newest first", { skip: !sqlite && "needs node:sqlite" }, async () => {
+  const db = fakeD1();
+  await ensureSchema(db);
+  const add = (/** @type {string} */ id, /** @type {string} */ host, /** @type {number} */ created) =>
+    db.prepare("INSERT INTO games (id, host, created, board, ruleset) VALUES (?, ?, ?, ?, ?)").bind(id, host, created, "scriptless", "scriptless").run();
+  await add("000000000000000a", RED, T0);
+  await add("000000000000000b", BLUE, T0 + 1000);
+  await add("000000000000000c", BLUE, T0 + 2000);
+  const { room } = recordedRoom("000000000000000b");
+  await writeGameRecord(db, gameRecord(room, T0));
+
+  const mine = await playerGames(db, RED, 50);
+  assert.deepEqual(
+    mine.map((g) => [g.id, g.host, g.joined, g.team, g.players]),
+    [
+      ["000000000000000b", false, true, "red", 3],
+      ["000000000000000a", true, false, null, 0],
+    ],
+  );
+  assert.deepEqual((await playerGames(db, BLUE, 50)).map((g) => g.id), ["000000000000000c", "000000000000000b"]);
+  assert.deepEqual((await playerGames(db, BLUE, 1)).map((g) => g.id), ["000000000000000c"]);
+  assert.deepEqual(await playerGames(db, "76561190000000099", 50), []);
 });

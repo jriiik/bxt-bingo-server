@@ -6,6 +6,7 @@
 //   GET  /auth/steam/callback                   back from Steam: checked, then signed in
 //   POST /auth/logout
 //   GET  /api/me[?game=<id>]                    who is signed in, and whether they host / play that game
+//   GET  /api/me/games                          the games they host or are in, newest first
 //   GET  /api/boards                            the boards a game can be made with
 //   POST /api/games                             make a game: { board, settings }, the maker hosts it
 //   POST /api/games/<id>/join                   join a team: { team }, gives a join code
@@ -39,6 +40,7 @@ import { CODE_LIFETIME_MS, issueCode } from "./codes.js";
 import { ensureSchema, sweep } from "./db.js";
 import { checkSettings } from "./settings.js";
 import { newGameId } from "./secrets.js";
+import { playerGames } from "./records.js";
 import { NONCE_MAX_AGE_MS, loginUrl, playerSummary, verifyLogin } from "./steam.js";
 
 /**
@@ -132,6 +134,8 @@ export async function webRoute(request, env, me, now) {
   let response = null;
   if (parts[1] === "me" && parts.length === 2 && method === "GET") {
     response = await whoAmI(env, me, url.searchParams.get("game"));
+  } else if (parts[1] === "me" && parts[2] === "games" && parts.length === 3 && method === "GET") {
+    response = await myGames(env, me);
   } else if (parts[1] === "boards" && parts.length === 2 && method === "GET") {
     response = json(200, Object.entries(BOARDS).map(([id, b]) => ({ id, name: b.name, ruleset: b.ruleset })));
   } else if (parts[1] === "games" && method === "POST") {
@@ -334,6 +338,24 @@ async function whoAmI(env, me, gameId) {
     }
   }
   return json(200, body);
+}
+
+// How many games the list shows
+const MY_GAMES = 50;
+
+/**
+ * The games the signed-in player hosts or is in, newest first, with each one's state and ending
+ * @param {Env} env
+ * @param {SignedIn | null} me
+ */
+async function myGames(env, me) {
+  if (!me) {
+    return json(401, { error: "sign_in", message: "sign in through Steam first" });
+  }
+  const games = await playerGames(env.DB, me.steamid64, MY_GAMES);
+  return json(200, {
+    games: games.map((g) => ({ ...g, board_name: Object.hasOwn(BOARDS, g.board) ? BOARDS[g.board].name : g.board })),
+  });
 }
 
 /**
