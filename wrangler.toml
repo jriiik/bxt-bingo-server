@@ -1,23 +1,27 @@
 # Local development: `npm run dev` runs the whole backend at http://localhost:8787,
-# with Durable Objects and R2 stored under .wrangler/ and no Cloudflare account needed
-# Deploying is the web side's: they add routes, D1, secrets and the production buckets
+# with Durable Objects, D1 and R2 stored under .wrangler/ and no Cloudflare account needed
+# The private test server is `env.staging` below (README: The private test server)
 
 name = "bxt-bingo"
 main = "worker/index.js"
 compatibility_date = "2025-09-01"
+# Only the custom domains serve the backend: no workers.dev or preview addresses
+workers_dev = false
+preview_urls = false
 
 [[durable_objects.bindings]]
 name = "GAME"
 class_name = "GameRoom"
 
-# Stands in for the web side's D1 join codes when testing locally
-[[durable_objects.bindings]]
-name = "DIRECTORY"
-class_name = "Directory"
-
+# (v1 had a Directory class for join codes, before they moved to D1; nothing was deployed with it)
 [[migrations]]
 tag = "v1"
-new_sqlite_classes = ["GameRoom", "Directory"]
+new_sqlite_classes = ["GameRoom"]
+
+# Players, login sessions, join codes and games (worker/db.js makes the tables on first use)
+[[d1_databases]]
+binding = "DB"
+database_name = "bingo"
 
 # Where BXT downloads files (the manifest's files_url). Without it, this Worker's /files/
 # In production, e.g. under [vars]: FILES_URL = "https://assets.jrik.dev/bingo/files/"
@@ -25,3 +29,80 @@ new_sqlite_classes = ["GameRoom", "Directory"]
 [[r2_buckets]]
 binding = "FILES"
 bucket_name = "bingo-files"
+
+# Rate limits, per address or per signed-in player (worker/web.js, worker/index.js)
+[[ratelimits]]
+name = "LOGIN_LIMIT"
+namespace_id = "2001"
+simple = { limit = 20, period = 60 }
+
+[[ratelimits]]
+name = "CODE_LIMIT"
+namespace_id = "2002"
+simple = { limit = 10, period = 60 }
+
+[[ratelimits]]
+name = "JOIN_LIMIT"
+namespace_id = "2003"
+simple = { limit = 10, period = 60 }
+
+[[ratelimits]]
+name = "CREATE_LIMIT"
+namespace_id = "2004"
+simple = { limit = 5, period = 60 }
+
+[[ratelimits]]
+name = "ACTION_LIMIT"
+namespace_id = "2005"
+simple = { limit = 60, period = 60 }
+
+# The private test server at bingo-staging.jrik.dev: its own storage, and only the players in the
+# ALLOWED_STEAMIDS secret can sign in or see anything. It serves the web pages too, from the folder
+# given when deploying: npx wrangler deploy --env staging --assets <folder with bingo/ in it>
+# Secrets (npx wrangler secret put <NAME> --env staging): ALLOWED_STEAMIDS, STEAM_API_KEY
+[env.staging]
+name = "bxt-bingo-staging"
+routes = [{ pattern = "bingo-staging.jrik.dev", custom_domain = true }]
+vars = { PRIVATE = "true" }
+
+[env.staging.assets]
+binding = "ASSETS"
+# The Worker checks who is signed in before any page is shown
+run_worker_first = true
+
+[[env.staging.durable_objects.bindings]]
+name = "GAME"
+class_name = "GameRoom"
+
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "bingo-staging"
+
+[[env.staging.r2_buckets]]
+binding = "FILES"
+bucket_name = "bingo-files-staging"
+
+[[env.staging.ratelimits]]
+name = "LOGIN_LIMIT"
+namespace_id = "2101"
+simple = { limit = 20, period = 60 }
+
+[[env.staging.ratelimits]]
+name = "CODE_LIMIT"
+namespace_id = "2102"
+simple = { limit = 10, period = 60 }
+
+[[env.staging.ratelimits]]
+name = "JOIN_LIMIT"
+namespace_id = "2103"
+simple = { limit = 10, period = 60 }
+
+[[env.staging.ratelimits]]
+name = "CREATE_LIMIT"
+namespace_id = "2104"
+simple = { limit = 5, period = 60 }
+
+[[env.staging.ratelimits]]
+name = "ACTION_LIMIT"
+namespace_id = "2105"
+simple = { limit = 60, period = 60 }

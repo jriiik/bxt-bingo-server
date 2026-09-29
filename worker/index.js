@@ -5,13 +5,15 @@
 //   GET  /ws/games/<id>           live updates for pages and spectators
 //   GET  /api/games/<id>          a snapshot of a game
 //   GET  /files/<sha256>          saves and other files (production serves them from assets.jrik.dev)
+// The web pages' routes (Steam sign-in, making and joining games, the host's actions) are in web.js
+// With an ASSETS binding (the pages, e.g. on the private test server), everything else is a page
 // Dev routes, only with DEV_ROUTES=true (`npm run dev`), standing in for the pages and Steam login:
 //   POST /dev/games                          create a game: { tiles, settings, ruleset }
 //   POST /dev/games/<id>/players             add a player: { name, team, steamid64? }, gives a join code
 //   POST /dev/games/<id>/code                a new join code: { steamid64 }
 //   POST /dev/games/<id>/<action>            host actions, see GameRoom.action
 //   PUT  /dev/files/<sha256>                 upload a file
-// The web side adds Steam login, its own routes for the pages, D1 and rate limits
+//   GET  /dev/login?steamid64=&name=&return= sign in as anyone, without Steam (localhost only)
 
 import extraFiles from "../rules/extra-files.json";
 import handicapPresets from "../rules/handicaps.json";
@@ -19,17 +21,29 @@ import scripted from "../rules/won-scripted.json";
 import scriptless from "../rules/won-scriptless.json";
 import { JOIN_HEADER, SESSION_HEADER } from "../src/protocol/index.js";
 import { checkHandicapPresets } from "../src/rules/handicaps.js";
+import { SESSION_COOKIE, SESSION_LIFETIME_MS, cookie, isPageOrigin, isPrivate, signedIn, startSession } from "./auth.js";
+import { issueCode, redeemCode } from "./codes.js";
 import { newGameId, newSessionToken, sha256Hex } from "./secrets.js";
+import { clientIp, page, webRoute } from "./web.js";
 
-export { Directory } from "./directory.js";
 export { GameRoom } from "./game-room.js";
 
 /**
  * @typedef {object} Env
  * @property {DurableObjectNamespace<import("./game-room.js").GameRoom>} GAME
- * @property {DurableObjectNamespace<import("./directory.js").Directory>} DIRECTORY
  * @property {R2Bucket} FILES
+ * @property {D1Database} DB Players, sessions, join codes, games (db.js)
+ * @property {Fetcher} [ASSETS] The web pages, when this Worker serves them
  * @property {string} [DEV_ROUTES]
+ * @property {string} [STEAM_API_KEY] Secret: Steam names and avatars
+ * @property {string} [PRIVATE] "true": only ALLOWED_STEAMIDS may sign in and see anything
+ * @property {string} [ALLOWED_STEAMIDS] Comma-separated SteamID64s, for the private test server
+ * @property {string} [PAGE_ORIGINS] Comma-separated origins of pages served elsewhere, e.g. https://jrik.dev
+ * @property {RateLimit} [LOGIN_LIMIT]
+ * @property {RateLimit} [JOIN_LIMIT]
+ * @property {RateLimit} [CODE_LIMIT] Join codes typed in BXT, per address
+ * @property {RateLimit} [CREATE_LIMIT]
+ * @property {RateLimit} [ACTION_LIMIT]
  */
 
 /** @type {Record<string, import("../src/protocol/segment.js").Ruleset>} */
@@ -71,7 +85,9 @@ function refused(result) {
  */
 const game = (env, id) => env.GAME.get(env.GAME.idFromName(id));
 
-const directory = (/** @type {Env} */ env) => env.DIRECTORY.get(env.DIRECTORY.idFromName("directory"));
+// Paths that work without signing in on the private test server: BXT's socket (join codes and
+// session tokens are its credentials), the files it downloads, signing in, and the dev routes
+const OPEN_PATHS = ["bxt", "files", "auth", "dev"];
 
 export default {
   /**
@@ -83,13 +99,32 @@ export default {
     const path = url.pathname;
     const method = request.method;
     const parts = path.split("/").filter(Boolean);
+    const now = Date.now();
 
     if (path === "/bxt" && method === "GET") {
       return connectBxt(request, env);
     }
+
+    const me = await signedIn(request, env, now);
+    if (isPrivate(env) && !me && !OPEN_PATHS.includes(parts[0])) {
+      if (parts[0] === "api" || parts[0] === "ws") {
+        return json(401, { error: "sign_in", message: "this is a private test server: sign in through Steam" });
+      }
+      return page(401, "Private test server", "This Half-Life Bingo server is for invited testers.", undefined, url.pathname + url.search);
+    }
+
+    const web = await webRoute(request, env, me, now);
+    if (web) {
+      return web;
+    }
     if (parts[0] === "ws" && parts[1] === "games" && parts.length === 3 && method === "GET") {
       if (request.headers.get("Upgrade")?.toLowerCase() !== "websocket") {
         return json(426, { error: "expected a WebSocket upgrade" });
+      }
+      // Browsers send where the page is from. Other sites' pages don't get the live updates
+      const origin = request.headers.get("Origin");
+      if (origin !== null && !isPageOrigin(request, env, origin)) {
+        return json(403, { error: "bad_origin" });
       }
       return game(env, parts[2]).fetch(new Request("https://game/web", { headers: request.headers }));
     }
@@ -108,7 +143,13 @@ export default {
       });
     }
     if (parts[0] === "dev" && env.DEV_ROUTES === "true") {
-      return devRoute(request, env, parts.slice(1));
+      return devRoute(request, env, parts.slice(1), now);
+    }
+    if (env.ASSETS && method === "GET") {
+      if (path === "/") {
+        return Response.redirect(`${url.origin}/bingo/`, 302);
+      }
+      return env.ASSETS.fetch(request);
     }
     return json(404, { error: "not_found" });
   },
@@ -131,7 +172,12 @@ async function connectBxt(request, env) {
   const headers = new Headers({ Upgrade: "websocket" });
   let gameId;
   if (code) {
-    const redeemed = await directory(env).redeem(code);
+    // Codes are short, so guessing is limited per address
+    const limited = env.CODE_LIMIT && !(await env.CODE_LIMIT.limit({ key: clientIp(request) })).success;
+    if (limited) {
+      return json(429, { error: "rate_limited" });
+    }
+    const redeemed = await redeemCode(env.DB, code);
     if ("error" in redeemed) {
       return json(403, { error: redeemed.error });
     }
@@ -159,9 +205,25 @@ async function connectBxt(request, env) {
  * @param {Request} request
  * @param {Env} env
  * @param {string[]} parts After /dev
+ * @param {number} now
  */
-async function devRoute(request, env, parts) {
+async function devRoute(request, env, parts, now) {
   const method = request.method;
+
+  // Signs in as anyone, for testing the pages without Steam. Only on this machine
+  if (parts[0] === "login" && parts.length === 1 && method === "GET") {
+    const url = new URL(request.url);
+    const steamid64 = url.searchParams.get("steamid64") ?? "";
+    if (!["localhost", "127.0.0.1"].includes(url.hostname) || !/^\d{17}$/.test(steamid64)) {
+      return json(400, { error: "bad_request", message: "needs steamid64 (17 digits), on localhost" });
+    }
+    const token = await startSession(env.DB, { steamid64, name: url.searchParams.get("name") || `Player ${steamid64.slice(-4)}`, avatar: null }, now);
+    const back = url.searchParams.get("return") ?? "/bingo/";
+    return new Response(null, {
+      status: 302,
+      headers: { Location: /^(\/(?![/\\])|http:\/\/(localhost|127\.0\.0\.1)[:/])/.test(back) ? back : "/bingo/", "Set-Cookie": cookie(SESSION_COOKIE, token, SESSION_LIFETIME_MS) },
+    });
+  }
 
   if (parts[0] === "files" && parts.length === 2 && method === "PUT") {
     const body = await request.arrayBuffer();
@@ -212,14 +274,14 @@ async function devRoute(request, env, parts) {
     if (result.error) {
       return refused(result);
     }
-    return json(200, { steamid64, code: await directory(env).issue(id, steamid64) });
+    return json(200, { steamid64, code: await issueCode(env.DB, id, steamid64) });
   }
   if (parts.length === 3 && parts[2] === "code") {
     const snapshot = await stub.snapshot();
     if (!snapshot?.lobby.players.some((p) => p.steamid64 === body.steamid64)) {
       return json(404, { error: "unknown_player" });
     }
-    return json(200, { code: await directory(env).issue(id, body.steamid64) });
+    return json(200, { code: await issueCode(env.DB, id, body.steamid64) });
   }
   if (parts.length === 3) {
     const result = await stub.action(parts[2], body);

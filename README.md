@@ -2,9 +2,9 @@
 
 The backend for BXT Bingo: a Trackmania-Bingo-style community game for Half-Life speedrunning,
 played in-game through [BunnymodXT](https://github.com/YaLTeR/BunnymodXT) with web pages on
-jrik.dev. It runs on Cloudflare: a Worker, and one Durable Object per game. This repo has
-everything that runs locally, and the web side adds Steam login, D1 and deploying. The full design
-lives in `BINGO.md`. The web side's is `BINGO-WEB.md`, kept by the frontend dev.
+jrik.dev. It runs on Cloudflare: a Worker, one Durable Object per game, and a D1 database for
+players, sign-ins and join codes. Everything runs locally too. The full design lives in `BINGO.md`.
+The web side's is `BINGO-WEB.md`, kept by the frontend dev.
 
 This has been done mostly with AI as you can probably tell from how things are formatted, but it's been
 tweaked and reviewed by real developers and thoroughly playtested. Of course it still might have
@@ -18,7 +18,8 @@ bugs and things to be polished, but just letting you know that it's not a one-pr
 | `src/game` | Game rules as pure logic: capture, steal (strictly faster, ties keep the first time), redo own tile, lockout, the 12 lines, time limit, sudden death, tiebreakers, draws, host ends, and voids by replaying the event log. |
 | `src/room` | One whole game around the rules: players, lobby, manifests, attempts, result checks and flags, board snapshots, events. Pure logic too: every call returns what to send and store. |
 | `src/rules` | Handicaps: applying the presets from `rules/handicaps.json` to a player's ruleset. |
-| `worker/` | The Worker (routes) and the game Durable Object (`GameRoom`): sockets with hibernation, storage, alarms. `directory.js` stands in for the web side's D1 join codes. |
+| `worker/` | The Worker (routes) and the game Durable Object (`GameRoom`): sockets with hibernation, storage, alarms. |
+| `worker/web.js` | The routes the web pages call (§ Web routes): Steam sign-in, making and joining games, the host's actions. With `steam.js` (checking Steam's sign-in answers, names and avatars), `auth.js` (sessions in a cookie, the private test server's allowlist, which pages may call), `codes.js` (join codes), `settings.js` (checking a host's lobby options) and `db.js` (the D1 tables, made on first use). |
 | `rules/` | The standard rulesets made from the community's whitelist sheet, the handicap presets, and the list of extra files. |
 | `files/` | Extra files the game downloads, like the win sound, as listed in `rules/extra-files.json`. |
 | `boards/` | Test boards: BXT's offline manifests, also used by `dev-game create`. |
@@ -41,7 +42,8 @@ npm test
 ```
 
 The code is plain JavaScript with JSDoc types. `jsconfig.json` makes editors like VS Code check
-them.
+them. The tests of sessions and join codes use `node:sqlite` in place of D1, from Node 22.13; on
+older versions they're skipped.
 
 ## Playing locally
 
@@ -169,6 +171,54 @@ Once a game is over, players can't be added, moved, kicked or given handicaps, b
 | `autojump`, `ducktap` | `no_attack2`, `no_damage`, `duckless`, `jumpless`, `useless`, `pacifist`, `bloodthirsty`, `single_segment`, `jupiter`, `mars`, `short_sighted`, `baby`, `reverse`, `cs16` |
 
 What each one does is in BINGO.md §10.1.
+
+## Web routes
+
+The pages (on jrik.dev, or served by this Worker on the private test server) call these. Actions
+need a signed-in player and must come from the pages: this Worker's own origin, or one listed in
+`PAGE_ORIGINS` (e.g. `https://jrik.dev`), which also get CORS with credentials.
+
+| Route | What |
+|---|---|
+| `GET /auth/steam/login?return=<page>` | To Steam's sign-in page, and back to `<page>` after (a path here, or a page on `PAGE_ORIGINS`). |
+| `GET /auth/steam/callback` | Steam's answer: it must come back to the browser that asked (a cookie), Steam confirms it (`check_authentication`), each answer works once, then the player is stored (Steam name and avatar with `STEAM_API_KEY`) and signed in with a session cookie (`__Host-`, `HttpOnly`, `Secure`, `SameSite=Lax`; only its hash is stored). |
+| `POST /auth/logout` | Ends the session. |
+| `GET /api/me[?game=<id>]` | Who is signed in, whether this is a private server, and for a game: whether they host it and their lobby entry. |
+| `GET /api/boards` | The boards a game can be made with. The test boards, until the segment catalog exists. |
+| `POST /api/games` | `{ board, settings }`: makes a game, hosted by whoever made it. The settings are checked key by key (`worker/settings.js`). |
+| `POST /api/games/<id>/join` | `{ team }` (`red`, `blue` or `null`): joins, or changes team before the start, and gives a join code for `bxt_bingo_join`. |
+| `POST /api/games/<id>/code` | A new join code for a player of the game. |
+| `POST /api/games/<id>/host/<action>` | The host only: `start` `{ force }`, `end`, `move` `{ steamid64, team }`, `kick` `{ steamid64, ban }`, `unban`, `lock` `{ locked }`, `handicaps` `{ steamid64, handicaps }`, `void` / `accept` `{ attempt_id }`. |
+
+Join codes are in D1: single use, 10 minutes, one player, stored as hashes. Typing codes into BXT
+is rate limited per address, as are sign-ins, joins, new games and host actions (per player).
+`GET /api/games/<id>` is public and has `Access-Control-Allow-Origin: *`. Browser sockets
+(`/ws/games/<id>`) from other sites' pages are refused.
+
+Testing pages locally without Steam: with `npm run dev`, open
+`http://localhost:8787/dev/login?steamid64=<17 digits>&name=<name>&return=<page>` to be signed in as
+anyone (only on localhost). Pages on another local port, or opened from disk, may call the local
+server.
+
+## The private test server
+
+`env.staging` in `wrangler.toml` is a private copy at `bingo-staging.jrik.dev`, with its own
+storage, for real games between testers. Only the SteamIDs in its `ALLOWED_STEAMIDS` secret can sign
+in, and without signing in nothing but BXT's socket, the files and the sign-in itself answers. It
+also serves the web pages, from a folder given when deploying.
+
+```sh
+npx wrangler login
+npx wrangler secret put ALLOWED_STEAMIDS --env staging   # e.g. 76561197960000000,76561198000000000
+npx wrangler secret put STEAM_API_KEY --env staging      # from steamcommunity.com/dev/apikey
+npx wrangler deploy --env staging --assets <folder with the bingo/ pages in it>
+```
+
+The first deploy makes the D1 database, and the Worker makes its tables on first use. The
+`bingo-files-staging` R2 bucket has to exist first (`npx wrangler r2 bucket create
+bingo-files-staging`), with the board's saves in it under their SHA-256
+(`npx wrangler r2 object put bingo-files-staging/<sha256> --file <save> --remote`) and the extra files
+from `files/`.
 
 ## Offline play
 
