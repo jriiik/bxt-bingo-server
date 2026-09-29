@@ -112,7 +112,8 @@ export default {
     }
 
     const me = await signedIn(request, env, now);
-    const open = OPEN_PATHS.includes(parts[0]) || (parts[0] === "dev" && env.DEV_ROUTES === "true");
+    // Preflights never carry cookies, and answer nothing but which pages may call
+    const open = OPEN_PATHS.includes(parts[0]) || (parts[0] === "dev" && env.DEV_ROUTES === "true") || method === "OPTIONS";
     if (isPrivate(env) && !me && !open) {
       if (parts[0] === "api" || parts[0] === "ws") {
         return json(401, { error: "sign_in", message: "this is a private test server: sign in through Steam" });

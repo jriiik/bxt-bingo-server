@@ -340,11 +340,14 @@ async function whoAmI(env, me, gameId) {
   return json(200, body);
 }
 
-// How many games the list shows
+// How many games the list shows, and how many unfinished ones in it are checked with their game
 const MY_GAMES = 50;
+const MY_GAMES_CHECKED = 10;
 
 /**
  * The games the signed-in player hosts or is in, newest first, with each one's state and ending
+ * The unfinished ones are checked with their game first, which writes its record again if D1 is
+ * behind (a game ended before records existed, or a write that failed)
  * @param {Env} env
  * @param {SignedIn | null} me
  */
@@ -352,7 +355,12 @@ async function myGames(env, me) {
   if (!me) {
     return json(401, { error: "sign_in", message: "sign in through Steam first" });
   }
-  const games = await playerGames(env.DB, me.steamid64, MY_GAMES);
+  let games = await playerGames(env.DB, me.steamid64, MY_GAMES);
+  const unfinished = games.filter((g) => g.state !== "finished").slice(0, MY_GAMES_CHECKED);
+  const wrote = await Promise.all(unfinished.map((g) => game(env, g.id).refreshRecord(g.state).catch(() => false)));
+  if (wrote.some(Boolean)) {
+    games = await playerGames(env.DB, me.steamid64, MY_GAMES);
+  }
   return json(200, {
     games: games.map((g) => ({ ...g, board_name: Object.hasOwn(BOARDS, g.board) ? BOARDS[g.board].name : g.board })),
   });

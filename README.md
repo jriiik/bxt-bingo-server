@@ -184,7 +184,7 @@ need a signed-in player and must come from the pages: this Worker's own origin, 
 | `GET /auth/steam/callback` | Steam's answer: it must come back to the browser that asked (a cookie), Steam confirms it (`check_authentication`), each answer works once, then the player is stored (Steam name and avatar with `STEAM_API_KEY`) and signed in with a session cookie (`__Host-`, `HttpOnly`, `Secure`, `SameSite=Lax`; only its hash is stored). |
 | `POST /auth/logout` | Ends the session. |
 | `GET /api/me[?game=<id>]` | Who is signed in, whether this is a private server, and for a game: whether they host it and their lobby entry. |
-| `GET /api/me/games` | The 50 latest games they host or are in: state, how it ended, tiles per team, board, players, their team. |
+| `GET /api/me/games` | The 50 latest games they host or are in: state, how it ended, tiles per team, board, players, their team. Up to 10 of them that D1 has as unfinished are checked with their game first, which writes its record again if D1 is behind. |
 | `GET /api/boards` | The boards a game can be made with. The test boards, until the segment catalog exists. |
 | `POST /api/games` | `{ board, settings }`: makes a game, hosted by whoever made it. The settings are checked key by key (`worker/settings.js`). |
 | `POST /api/games/<id>/join` | `{ team }` (`red`, `blue` or `null`): joins, or changes team before the start, and gives a join code for `bxt_bingo_join`. |
@@ -194,7 +194,8 @@ need a signed-in player and must come from the pages: this Worker's own origin, 
 Games made through these routes are kept in D1 as they go (`worker/records.js`): the game writes its
 row (state, start and end, winner, how it ended, tiles per team, which leaderboards it counts for)
 and its players after each change that alters them, and once it's finished every result (voided and
-flagged ones marked), for the game lists now and the leaderboards later. A void that reopens a game
+flagged ones marked), for the game lists now and the leaderboards later. Recording never stops the
+game: a write that fails is tried again at the next change, or when a game list asks. A void that reopens a game
 sets it back to running until it ends again. Games made with the dev routes aren't kept.
 
 Join codes are in D1: single use, 10 minutes, one player, stored as hashes. Typing codes into BXT

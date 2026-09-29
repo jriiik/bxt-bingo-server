@@ -376,28 +376,53 @@ export class GameRoom extends DurableObject {
 
   /**
    * Keeps the game's row, its players and, once it's finished, its results up to date in D1
-   * (records.js), for the players' game lists and the leaderboards. A failed write is tried
-   * again at the next change
+   * (records.js), for the players' game lists and the leaderboards. Writes only when the record
+   * changed since the last write, unless forced. A failed write is tried again at the next
+   * change; nothing here ever stops the game
    * @param {number} now
+   * @param {boolean} [force]
+   * @returns {Promise<boolean>} Whether it wrote
    */
-  async #record(now) {
+  async #record(now, force = false) {
     const db = /** @type {{ DB?: D1Database }} */ (this.env).DB;
     if (!db || !this.room) {
-      return;
+      return false;
     }
-    const record = gameRecord(this.room, now);
-    const key = JSON.stringify(record);
-    if (key === this.recorded) {
-      return;
-    }
-    this.recorded = key;
-    this.recording = this.recording
-      .then(() => writeGameRecord(db, record))
-      .catch((e) => {
-        this.recorded = "";
-        console.error("the game's record wasn't written to D1", e);
+    let wrote = false;
+    try {
+      const record = gameRecord(this.room, now);
+      const key = JSON.stringify(record);
+      if (key === this.recorded && !force) {
+        return false;
+      }
+      this.recorded = key;
+      this.recording = this.recording.then(async () => {
+        try {
+          await writeGameRecord(db, record);
+          wrote = true;
+        } catch (e) {
+          if (this.recorded === key) {
+            this.recorded = "";
+          }
+          console.error("the game's record wasn't written to D1", e);
+        }
       });
-    await this.recording;
+      await this.recording;
+    } catch (e) {
+      console.error("the game's record couldn't be made", e);
+    }
+    return wrote;
+  }
+
+  /**
+   * The Worker's game lists call this for a game D1 has as not finished: a game whose last change
+   * came before records existed, or whose write failed, is written again. When D1's state isn't
+   * the game's, the record is written whatever was written last
+   * @param {string} stateInD1
+   * @returns {Promise<boolean>} Whether it wrote
+   */
+  async refreshRecord(stateInD1) {
+    return this.#record(Date.now(), this.room !== null && this.room.state !== stateInD1);
   }
 
   /**
