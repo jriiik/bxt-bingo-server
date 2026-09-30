@@ -13,6 +13,7 @@
     "test": "node --test",
     "dev": "wrangler dev --var DEV_ROUTES:true",
     "whitelist": "node tools/whitelist/main.js",
+    "catalog": "node tools/catalog/main.js",
     "echo": "node tools/echo.js",
     "dev-game": "node tools/dev-game.js",
     "fake-bxt": "node tools/fake-bxt.js"

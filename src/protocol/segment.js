@@ -7,12 +7,19 @@
  *   Never reused: a changed save or trigger makes a new segment with a new id
  * @property {string} label Short tile text, e.g. `OAR2`
  * @property {string} chapter e.g. `On A Rail`
+ * @property {string} [pool] The set the host picks it from (BINGO.md §3.3), e.g. `hl1`. `hl1` if missing
+ * @property {string} [game] The game folder it's played in, e.g. `valve` or `gearbox`. `valve` if missing
+ *   A board is always one game, as a save from one game doesn't load in another
  * @property {Record<string, FileRef>} saves Start save per engine build (`won` now, `steam` later)
  *   Saves aren't portable between builds
  * @property {StartCondition} start
  * @property {EndCondition} end
  * @property {number | null} reference_time_ms Community gold, as a reference for how long it takes
  */
+
+/** The pool and game of segments that don't say, like the ones on the first test boards */
+export const DEFAULT_POOL = "hl1";
+export const DEFAULT_GAME = "valve";
 
 /**
  * A file BXT downloads and checks, from `/files/<sha256>`

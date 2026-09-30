@@ -1,0 +1,8450 @@
+[
+  {
+    "id": "am-2-0",
+    "label": "AM2",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "7e02a4e298e65b31be6874b37b1e92866ce1043f525e82f7ebc699337caa2bfb",
+        "size": 78426
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1547.6,
+          232,
+          -263.9
+        ],
+        [
+          -1522.4,
+          403.3,
+          -82.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2381.3,
+          -848,
+          -288
+        ],
+        [
+          -2358.3,
+          -684.7,
+          -160.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-2-1",
+    "label": "AM2.1",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "7e02a4e298e65b31be6874b37b1e92866ce1043f525e82f7ebc699337caa2bfb",
+        "size": 78426
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1547.6,
+          232,
+          -263.9
+        ],
+        [
+          -1522.4,
+          403.3,
+          -82.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -3664,
+          943,
+          -280
+        ],
+        [
+          -3631,
+          977,
+          -233.6
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-2-2",
+    "label": "AM2.2",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "3f1a34e6d35ae9c7685a4ff65d659f476625ac209e8128bc90ad6aa252a50b1f",
+        "size": 153536
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -3664,
+          943,
+          -280
+        ],
+        [
+          -3631,
+          977,
+          -233.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2381.3,
+          -848,
+          -288
+        ],
+        [
+          -2358.3,
+          -684.7,
+          -160.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-3-0",
+    "label": "AM3",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "197719f3b39bcf4e7613fb0a978ac3f32b84f4a5d9716a50dafd623a82becbf9",
+        "size": 151132
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          216.8,
+          2030.6,
+          728
+        ],
+        [
+          243.9,
+          2208,
+          886.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1072.6,
+          561.9,
+          -141.3
+        ],
+        [
+          1085.9,
+          688,
+          -30.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-3-1",
+    "label": "AM3.1",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "197719f3b39bcf4e7613fb0a978ac3f32b84f4a5d9716a50dafd623a82becbf9",
+        "size": 151132
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          216.8,
+          2030.6,
+          728
+        ],
+        [
+          243.9,
+          2208,
+          886.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          943.4,
+          2054.8,
+          -144
+        ],
+        [
+          959.2,
+          2240,
+          5.4
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-3-2",
+    "label": "AM3.2",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "73f6a3a68d5de2a477091cb9776490c7b2b40513992c561d63c4e6e9c14d0c0b",
+        "size": 214895
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          904.5,
+          1944,
+          728
+        ],
+        [
+          921.8,
+          2176.7,
+          880.8
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1072.6,
+          561.9,
+          -141.3
+        ],
+        [
+          1085.9,
+          688,
+          -30.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-4-0",
+    "label": "AM4",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d766a39d846596db833def02c69b42c6d91912d543b2b8d58f56035c3058d6ab",
+        "size": 291336
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          734.5,
+          928.8,
+          -144
+        ],
+        [
+          752.3,
+          1038.9,
+          -16
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1368.2,
+          -345,
+          -360
+        ],
+        [
+          1382.7,
+          -53,
+          -201
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-4-1",
+    "label": "AM4.1",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d766a39d846596db833def02c69b42c6d91912d543b2b8d58f56035c3058d6ab",
+        "size": 291336
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          734.5,
+          928.8,
+          -144
+        ],
+        [
+          752.3,
+          1038.9,
+          -16
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          72.5,
+          460.3,
+          -144
+        ],
+        [
+          216,
+          485.3,
+          -24.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-4-2",
+    "label": "AM4.2",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "fcbfbfd5d7b8e13a5e8406645d3418eb48bfb67f2152e4399bf4e91afaa8d84e",
+        "size": 290040
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          72.5,
+          460.3,
+          -144
+        ],
+        [
+          216,
+          485.3,
+          -24.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1368.2,
+          -345,
+          -360
+        ],
+        [
+          1382.7,
+          -53,
+          -201
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-5-0",
+    "label": "AM5",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "809375a0c38456c37f76ceb86635f5347f9e03b831fdbeccb9541a087adfe97b",
+        "size": 288120
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1407.3,
+          -197.9,
+          -360
+        ],
+        [
+          1432,
+          -86.7,
+          -232.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1634.1,
+          888,
+          584.6
+        ],
+        [
+          1707.4,
+          1144,
+          618.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-5-1",
+    "label": "AM5.1",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "809375a0c38456c37f76ceb86635f5347f9e03b831fdbeccb9541a087adfe97b",
+        "size": 288120
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1407.3,
+          -197.9,
+          -360
+        ],
+        [
+          1432,
+          -86.7,
+          -232.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1865.4,
+          257,
+          96
+        ],
+        [
+          1970.8,
+          295.8,
+          137.7
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "am-5-2",
+    "label": "AM5.2",
+    "chapter": "Anomalous Materials",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "3aa606bad24109d456af316e70c2912e3123b1a2789261db7cdc904809364708",
+        "size": 436756
+      }
+    },
+    "start": {
+      "type": "on_load"
+    },
+    "end": {
+      "corners": [
+        [
+          1634.1,
+          888,
+          584.6
+        ],
+        [
+          1707.4,
+          1144,
+          618.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-1-0",
+    "label": "UC1",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "46974eb80ba385f325bad12dadffaab1b7bdd5c2f4a6803baccb3d5c41b9bc65",
+        "size": 436756
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1603.9,
+          888,
+          511.4
+        ],
+        [
+          1623.9,
+          1144,
+          771.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          633.9,
+          918.4,
+          -144
+        ],
+        [
+          650.3,
+          1027.5,
+          -19.6
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-1-1",
+    "label": "UC1.1",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "46974eb80ba385f325bad12dadffaab1b7bdd5c2f4a6803baccb3d5c41b9bc65",
+        "size": 436756
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1603.9,
+          888,
+          511.4
+        ],
+        [
+          1623.9,
+          1144,
+          771.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1111.8,
+          521.9,
+          -104
+        ],
+        [
+          1132.9,
+          721,
+          -63.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-1-2",
+    "label": "UC1.2",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "037fc444b737be0b0786cc1e6b7657b11d1878e95bffc2bb771c9f28849d0a9e",
+        "size": 122789
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1111.8,
+          521.9,
+          -104
+        ],
+        [
+          1132.9,
+          721,
+          -63.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          633.9,
+          918.4,
+          -144
+        ],
+        [
+          650.3,
+          1027.5,
+          -19.6
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-2-0",
+    "label": "UC2",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "454d8c34b15b507707bb58ba2b83c5e81ef63d2e88d3234e49fe59b169c8e292",
+        "size": 121251
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          996.5,
+          560,
+          -143.9
+        ],
+        [
+          1017.7,
+          831.6,
+          16
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          107.1,
+          2049.3,
+          728
+        ],
+        [
+          143.5,
+          2180,
+          870.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-2-1",
+    "label": "UC2.1",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "454d8c34b15b507707bb58ba2b83c5e81ef63d2e88d3234e49fe59b169c8e292",
+        "size": 121251
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          996.5,
+          560,
+          -143.9
+        ],
+        [
+          1017.7,
+          831.6,
+          16
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          865.3,
+          2021.7,
+          722
+        ],
+        [
+          920,
+          2039.5,
+          859.8
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-2-2",
+    "label": "UC2.2",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f4c78ea4dad81ff6a7c45ee9539801ceae04648b41c810d5c4ae04b28ab98036",
+        "size": 206630
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          867.4,
+          1946,
+          680.7
+        ],
+        [
+          904,
+          1991.6,
+          723.8
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          107.1,
+          2049.3,
+          728
+        ],
+        [
+          143.5,
+          2180,
+          870.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-3-0",
+    "label": "UC3",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f4c78ea4dad81ff6a7c45ee9539801ceae04648b41c810d5c4ae04b28ab98036",
+        "size": 206630
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2558.2,
+          -848,
+          -288
+        ],
+        [
+          -2544.4,
+          -656.2,
+          -139
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1403.4,
+          232,
+          -237.9
+        ],
+        [
+          -1384.1,
+          408,
+          -80.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-4-0",
+    "label": "UC4",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "51c2940d290af625bceefd5a947e91a1bc14a03c9290ac728d49e9a20c527b73",
+        "size": 259388
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1313.2,
+          243.4,
+          -240
+        ],
+        [
+          -1290.5,
+          407.7,
+          -80
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          64.5,
+          -1162,
+          -204
+        ],
+        [
+          82.3,
+          -1041.3,
+          -9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-4-1",
+    "label": "UC4.1",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "51c2940d290af625bceefd5a947e91a1bc14a03c9290ac728d49e9a20c527b73",
+        "size": 259388
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1313.2,
+          243.4,
+          -240
+        ],
+        [
+          -1290.5,
+          407.7,
+          -80
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -904,
+          -47.7,
+          -132
+        ],
+        [
+          -848.2,
+          -19.4,
+          -85.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-4-2",
+    "label": "UC4.2",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "b1a8999ef605cc723a20dd16aca24e4952650b63463e59ef393f289a7f4da5f5",
+        "size": 372366
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -904,
+          -47.7,
+          -132
+        ],
+        [
+          -848.2,
+          -19.4,
+          -85.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          64.5,
+          -1162,
+          -204
+        ],
+        [
+          82.3,
+          -1041.3,
+          -9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-5-0",
+    "label": "UC5",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ecc7adb6d374abda5c28d83de01ca7904f0723b54d54400cfe5f7bfd834ed470",
+        "size": 472563
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -292.8,
+          -224,
+          -204
+        ],
+        [
+          -278.4,
+          -98.6,
+          -98.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1808,
+          -1073.3,
+          -248
+        ],
+        [
+          1979.1,
+          -1044.3,
+          -10
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-5-1",
+    "label": "UC5.1",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ecc7adb6d374abda5c28d83de01ca7904f0723b54d54400cfe5f7bfd834ed470",
+        "size": 472563
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -292.8,
+          -224,
+          -204
+        ],
+        [
+          -278.4,
+          -98.6,
+          -98.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1501.1,
+          -754.8,
+          -300.6
+        ],
+        [
+          1631.6,
+          -666.7,
+          -281.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-5-2",
+    "label": "UC5.2",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d77676745c008be75e1d4c06b79e3563d671ff7a79ac09f1d032f67b25d5be5b",
+        "size": 469993
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1501.1,
+          -754.8,
+          -300.6
+        ],
+        [
+          1631.6,
+          -666.7,
+          -281.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1808,
+          -1073.3,
+          -248
+        ],
+        [
+          1979.1,
+          -1044.3,
+          -10
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-6-0",
+    "label": "UC6",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8475a344e038fdc26a25b44748377c685d8fd92cb6cf39d019b4ecbcc77ec273",
+        "size": 467574
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -169.1,
+          -3328.1,
+          -256
+        ],
+        [
+          -8.5,
+          -3308.9,
+          -116.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2203.7,
+          -831.6,
+          -576
+        ],
+        [
+          2380.4,
+          -809.4,
+          -450.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-6-1",
+    "label": "UC6.1",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8475a344e038fdc26a25b44748377c685d8fd92cb6cf39d019b4ecbcc77ec273",
+        "size": 467574
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -169.1,
+          -3328.1,
+          -256
+        ],
+        [
+          -8.5,
+          -3308.9,
+          -116.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1132.3,
+          -479.4,
+          -2736
+        ],
+        [
+          -1113.2,
+          -306.2,
+          -2597
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "uc-6-2",
+    "label": "UC6.2",
+    "chapter": "Unforeseen Consequences",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "1fad70620db2148b527c879dc634a2f19f0e5f7fc1dd05e60c047e85dfeae37f",
+        "size": 572571
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1132.3,
+          -479.4,
+          -2736
+        ],
+        [
+          -1113.2,
+          -306.2,
+          -2597
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2203.7,
+          -831.6,
+          -576
+        ],
+        [
+          2380.4,
+          -809.4,
+          -45
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-1-0",
+    "label": "OC1",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "80297b183c3f9f959ab9593f2a401c30210ff56c1aa7f3d7fef23fa0850676d3",
+        "size": 575727
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2210.7,
+          -827.1,
+          -576
+        ],
+        [
+          2431.5,
+          -812.8,
+          -448
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -560,
+          -232.4,
+          -576
+        ],
+        [
+          -385.1,
+          -216.1,
+          -42
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-1-1",
+    "label": "OC1.1",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "80297b183c3f9f959ab9593f2a401c30210ff56c1aa7f3d7fef23fa0850676d3",
+        "size": 575727
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2210.7,
+          -827.1,
+          -576
+        ],
+        [
+          2431.5,
+          -812.8,
+          -448
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          592.2,
+          -958.7,
+          -444
+        ],
+        [
+          608.9,
+          -772.6,
+          -384
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-1-2",
+    "label": "OC1.2",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "cb60a27b011e0d25b1aca8997b0b11893ad9732c5863ce188f678d819f9d170e",
+        "size": 745259
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          592.2,
+          -958.7,
+          -444
+        ],
+        [
+          608.9,
+          -772.6,
+          -384
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -560,
+          -232.4,
+          -576
+        ],
+        [
+          -385.1,
+          -216.1,
+          -42
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-2-0",
+    "label": "OC2",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "65aa6a457b1b0c56dc265007eca2f380207288637320c062108d8d4c45cc50b7",
+        "size": 741109
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -560,
+          -353.5,
+          -524.6
+        ],
+        [
+          -384,
+          -304.6,
+          -366.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1261.5,
+          298.7,
+          64
+        ],
+        [
+          1271.1,
+          496,
+          180
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-2-1",
+    "label": "OC2.1",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "65aa6a457b1b0c56dc265007eca2f380207288637320c062108d8d4c45cc50b7",
+        "size": 741109
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -560,
+          -353.5,
+          -524.6
+        ],
+        [
+          -384,
+          -304.6,
+          -366.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1261.8,
+          -668,
+          228.6
+        ],
+        [
+          1349,
+          -512,
+          241.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-2-2",
+    "label": "OC2.2",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "42247d557caf25d75fb37da616ccde14c85cd702c30fa97762e6fe2003f72253",
+        "size": 864628
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1261.8,
+          -668,
+          228.6
+        ],
+        [
+          1349,
+          -512,
+          241.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1261.5,
+          298.7,
+          64
+        ],
+        [
+          1271.1,
+          496,
+          180
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-3-0",
+    "label": "OC3",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2f84cfca4947e47fc76a75de54571020efe8c081c795616e45535b38cae6106b",
+        "size": 863401
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1745.8,
+          -700.4,
+          64
+        ],
+        [
+          1756.5,
+          -528.6,
+          199.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -299,
+          -1720,
+          1155.7
+        ],
+        [
+          -171,
+          -1560,
+          1214.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-3-1",
+    "label": "OC3.1",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2f84cfca4947e47fc76a75de54571020efe8c081c795616e45535b38cae6106b",
+        "size": 863401
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1745.8,
+          -700.4,
+          64
+        ],
+        [
+          1756.5,
+          -528.6,
+          199.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          802.8,
+          -1378.6,
+          64
+        ],
+        [
+          879.3,
+          -1330.6,
+          224
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oc-3-2",
+    "label": "OC3.2",
+    "chapter": "Office Complex",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "824abc1d4fcd61714e82702ba111a40a7674bf1401d8c1b406292e02f2396826",
+        "size": 1007719
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          802.8,
+          -1378.6,
+          64
+        ],
+        [
+          879.3,
+          -1330.6,
+          224
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -299,
+          -1720,
+          1155.7
+        ],
+        [
+          -171,
+          -1560,
+          1214.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "wgh-1-0",
+    "label": "WGH1",
+    "chapter": "We've Got Hostiles",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2bcd383debfcbe3df5358de9b2b4fe62f42c8383f3f451ea808c11f3d440c3ec",
+        "size": 1001515
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          155.3,
+          1422.9,
+          0
+        ],
+        [
+          193.8,
+          1580.2,
+          240
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1000,
+          1146,
+          0
+        ],
+        [
+          1139.8,
+          1173.3,
+          127.7
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "wgh-1-1",
+    "label": "WGH1.1",
+    "chapter": "We've Got Hostiles",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2bcd383debfcbe3df5358de9b2b4fe62f42c8383f3f451ea808c11f3d440c3ec",
+        "size": 1001515
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          155.3,
+          1422.9,
+          0
+        ],
+        [
+          193.8,
+          1580.2,
+          240
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          19.5,
+          985.1,
+          0
+        ],
+        [
+          116.2,
+          1028,
+          76
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "wgh-1-2",
+    "label": "WGH1.2",
+    "chapter": "We've Got Hostiles",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "bf2407b2afcff533c01455dcef40d13f74f2f56479cbea5d165ee0f7dfcdce55",
+        "size": 137678
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          19.5,
+          985.1,
+          0
+        ],
+        [
+          116.2,
+          1060,
+          76
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1000,
+          1146,
+          0
+        ],
+        [
+          1139.8,
+          1173.3,
+          127.7
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-1-0",
+    "label": "BP1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f260c62962be58d3a19d75a8c649dcd52c212199c9c5c28c0686183c719482b2",
+        "size": 136983
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2621.7,
+          2914.1,
+          -624
+        ],
+        [
+          -2514.6,
+          2934.1,
+          -496
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -164.5,
+          -2459.7,
+          -3239.5
+        ],
+        [
+          -97.9,
+          -2434.6,
+          -3174.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-1-1",
+    "label": "BP1.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f260c62962be58d3a19d75a8c649dcd52c212199c9c5c28c0686183c719482b2",
+        "size": 136983
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2621.7,
+          2914.1,
+          -624
+        ],
+        [
+          -2514.6,
+          2934.1,
+          -496
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1619.5,
+          3235,
+          -3312
+        ],
+        [
+          -1516.8,
+          3299,
+          -3227.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-1-2",
+    "label": "BP1.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "52b256cfe6b25ac409e1be4d3eae7baca788131d2981968e1af63dddfdc3c524",
+        "size": 223288
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1619.5,
+          3235,
+          -3312
+        ],
+        [
+          -1516.8,
+          3299,
+          -3227.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -164.5,
+          -2459.7,
+          -3239.5
+        ],
+        [
+          -97.9,
+          -2434.6,
+          -3174.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-2-0",
+    "label": "BP2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "3a02e200bff905db7b693550eb6b9d339173407cf5c8a9f35dee5d7e645b04ef",
+        "size": 219722
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2084.5,
+          -2289,
+          -3239.5
+        ],
+        [
+          -2016.3,
+          -2268.3,
+          -3175.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2807.4,
+          -1052,
+          -2761.6
+        ],
+        [
+          -2528,
+          -205.1,
+          -270
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-2-1",
+    "label": "BP2.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "3a02e200bff905db7b693550eb6b9d339173407cf5c8a9f35dee5d7e645b04ef",
+        "size": 219722
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2084.5,
+          -2289,
+          -3239.5
+        ],
+        [
+          -2016.3,
+          -2268.3,
+          -3175.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2394,
+          -1708.9,
+          -3260
+        ],
+        [
+          -2363.4,
+          -1576,
+          -3105.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-2-2",
+    "label": "BP2.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "9297bee8fe4c85ddd316c2d17102f6f0ab6ded2603145fbbec66734f77176f73",
+        "size": 257920
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2394,
+          -1708.9,
+          -3260
+        ],
+        [
+          -2363.4,
+          -1576,
+          -3105.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2807.4,
+          -1052,
+          -2761.6
+        ],
+        [
+          -2528,
+          -205.1,
+          -270
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-3-0",
+    "label": "BP3",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ab651ee2fce681215f06a984e09d1621133342f01822f46f0d7d2e91fdd3d8f5",
+        "size": 334907
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -707.2,
+          -3402.1,
+          -1006
+        ],
+        [
+          -572,
+          -3377.8,
+          -860
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -45.8,
+          736,
+          -1398
+        ],
+        [
+          -35,
+          898,
+          -1274
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-3-1",
+    "label": "BP3.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ab651ee2fce681215f06a984e09d1621133342f01822f46f0d7d2e91fdd3d8f5",
+        "size": 334907
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -707.2,
+          -3402.1,
+          -1006
+        ],
+        [
+          -572,
+          -3377.8,
+          -860
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -41,
+          -983.4,
+          -1009.5
+        ],
+        [
+          658,
+          -927.9,
+          -708.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-3-2",
+    "label": "BP3.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ab651ee2fce681215f06a984e09d1621133342f01822f46f0d7d2e91fdd3d8f5",
+        "size": 334907
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -41,
+          -983.4,
+          -1009.5
+        ],
+        [
+          658,
+          -927.9,
+          -708.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -45.8,
+          736,
+          -1398
+        ],
+        [
+          -35,
+          898,
+          -1274
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-4-0",
+    "label": "BP4",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "58616693d8a9552542d155e0e4e0fd58bb01882ce26986b6bf7e847c01d84b51",
+        "size": 332220
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -834.1,
+          -240,
+          1040
+        ],
+        [
+          -816.9,
+          -98.8,
+          1202.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1382.2,
+          864,
+          -960
+        ],
+        [
+          -1354.5,
+          955.2,
+          -712
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-4-1",
+    "label": "BP4.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "58616693d8a9552542d155e0e4e0fd58bb01882ce26986b6bf7e847c01d84b51",
+        "size": 332220
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -834.1,
+          -240,
+          1040
+        ],
+        [
+          -816.9,
+          -98.8,
+          1202.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          363,
+          128.4,
+          -928
+        ],
+        [
+          380.9,
+          343,
+          -745.7
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-4-2",
+    "label": "BP4.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "926387df5dc5f0c65082a7d718482157d652d7990111147598c432859c709b17",
+        "size": 449543
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          363,
+          128.4,
+          -928
+        ],
+        [
+          380.9,
+          343,
+          -745.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1382.2,
+          864,
+          -960
+        ],
+        [
+          -1354.5,
+          955.2,
+          -712
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-5-0",
+    "label": "BP5",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "6d7bf752663de5636fc00f545e588dfdbc4a5c507e14045815016623055a2c3a",
+        "size": 449809
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1399.7,
+          888.9,
+          -704
+        ],
+        [
+          -1314.6,
+          970.7,
+          -657.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1234.2,
+          -246.2,
+          1040
+        ],
+        [
+          -1204.7,
+          -92,
+          1160
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-5-1",
+    "label": "BP5.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "6d7bf752663de5636fc00f545e588dfdbc4a5c507e14045815016623055a2c3a",
+        "size": 449809
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1399.7,
+          888.9,
+          -704
+        ],
+        [
+          -1314.6,
+          970.7,
+          -657.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          257.3,
+          -291.1,
+          -32.9
+        ],
+        [
+          278.5,
+          -148.3,
+          -4.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-5-2",
+    "label": "BP5.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "849a3df106b6d35a8a02ef0807fc2c9aef79ecf8d71aa9fb3a80a2bfd905c3d3",
+        "size": 451011
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          257.3,
+          -291.1,
+          -32.9
+        ],
+        [
+          278.5,
+          -148.3,
+          -4.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1234.2,
+          -246.2,
+          1040
+        ],
+        [
+          -1204.7,
+          -92,
+          1160
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-6-0",
+    "label": "BP6",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "268e2ad6a443e04323687d5305b157a771eebc4c11dcc4fc60c1f52943e1a503",
+        "size": 450773
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -455.9,
+          739.7,
+          -1402
+        ],
+        [
+          -441,
+          884,
+          -1259.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2725.5,
+          -880.2,
+          -1194
+        ],
+        [
+          -2579,
+          -854.9,
+          -1018
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-7-0",
+    "label": "BP7",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d665defcec5e7e874ec04859a39c09e21ff939667f084fa6dd38adc88ddd274f",
+        "size": 448808
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2560.5,
+          1386.7,
+          312
+        ],
+        [
+          2708,
+          1427.1,
+          522.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2657.7,
+          -53.9,
+          -1148
+        ],
+        [
+          2755.2,
+          -29.7,
+          -936
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-7-1",
+    "label": "BP7.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d665defcec5e7e874ec04859a39c09e21ff939667f084fa6dd38adc88ddd274f",
+        "size": 448808
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2560.5,
+          1386.7,
+          312
+        ],
+        [
+          2708,
+          1427.1,
+          522.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1872.1,
+          1417.6,
+          -1302.6
+        ],
+        [
+          1990,
+          1460.5,
+          -1250.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-7-2",
+    "label": "BP7.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d25ba7a4d71a9eaa9d9aed79e273c0d2476090fd02c62c6fb7601bf00c98fed6",
+        "size": 501020
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1872.1,
+          1417.6,
+          -1302.6
+        ],
+        [
+          1990,
+          1460.5,
+          -1250.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2657.7,
+          -53.9,
+          -1148
+        ],
+        [
+          2755.2,
+          -29.7,
+          -936
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-8-0",
+    "label": "BP8",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "57faa9a61d0d430352185a895ba341a6df9e2ddbad7e5cf205d65347aad03a59",
+        "size": 500570
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1930.9,
+          -170.5,
+          -1140
+        ],
+        [
+          2042,
+          -147.7,
+          -946.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1522,
+          821,
+          240
+        ],
+        [
+          1655.4,
+          838.8,
+          328
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-8-1",
+    "label": "BP8.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "57faa9a61d0d430352185a895ba341a6df9e2ddbad7e5cf205d65347aad03a59",
+        "size": 500570
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1930.9,
+          -170.5,
+          -1140
+        ],
+        [
+          2042,
+          -147.7,
+          -946.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1254.7,
+          259,
+          290
+        ],
+        [
+          1281.3,
+          390.5,
+          397.8
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-8-2",
+    "label": "BP8.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8865a281f7af22fc141530375571f75e15a52c6c0c8eb45eccb098c9f284a04c",
+        "size": 541114
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1254.7,
+          259,
+          290
+        ],
+        [
+          1281.3,
+          390.5,
+          397.8
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1522,
+          821,
+          240
+        ],
+        [
+          1655.4,
+          838.8,
+          328
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-9-0",
+    "label": "BP9",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "6e2555a242b50a056e7dd31afd7cf371db8fb1855ffde1d9b77435c7076beecd",
+        "size": 542346
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1522,
+          752.2,
+          240
+        ],
+        [
+          1653.7,
+          775.1,
+          312.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2560,
+          1022,
+          315
+        ],
+        [
+          2716,
+          1040.8,
+          467
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-9-1",
+    "label": "BP9.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "6e2555a242b50a056e7dd31afd7cf371db8fb1855ffde1d9b77435c7076beecd",
+        "size": 542346
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1522,
+          752.2,
+          240
+        ],
+        [
+          1653.7,
+          775.1,
+          312.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1927.5,
+          940,
+          299.7
+        ],
+        [
+          2056.9,
+          1036,
+          321.4
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-9-2",
+    "label": "BP9.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "676825c937d1a201385e2f022216c2f17e879797b82e0e5a40344460fa3d69f7",
+        "size": 545012
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1927.5,
+          940,
+          299.7
+        ],
+        [
+          2056.9,
+          1036,
+          321.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2560,
+          1022,
+          315
+        ],
+        [
+          2716,
+          1040.8,
+          467
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-10-0",
+    "label": "BP10",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8c633e86bf00e0a4e2659fafd015e6456ffbc8ea587854c0b1d89e79c3425de2",
+        "size": 544778
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2727,
+          -1124.1,
+          -1194
+        ],
+        [
+          -2575.6,
+          -1100.8,
+          -991.8
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1193,
+          -1137.8,
+          -1204
+        ],
+        [
+          -1063,
+          -1114.9,
+          -1097
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-11-0",
+    "label": "BP11",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "462a30897868f1794acf3488cba0b9f4e9156094ba60d435b209e76e6c6bdecc",
+        "size": 545152
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1193,
+          -1270.7,
+          -1204
+        ],
+        [
+          -1055.3,
+          -1254,
+          -1073.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -711.8,
+          -1331.1,
+          -2150.6
+        ],
+        [
+          -539,
+          -1193.1,
+          -2128
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-11-1",
+    "label": "BP11.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "462a30897868f1794acf3488cba0b9f4e9156094ba60d435b209e76e6c6bdecc",
+        "size": 545152
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1193,
+          -1270.7,
+          -1204
+        ],
+        [
+          -1055.3,
+          -1254,
+          -1073.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -937,
+          -843.5,
+          -1412.6
+        ],
+        [
+          -842.5,
+          -720.1,
+          -1317.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-11-2",
+    "label": "BP11.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2dba815693ecbbde30eb51b434a99e019aaf340a35f56a43471dc1150fc5cbc3",
+        "size": 619566
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -937,
+          -843.5,
+          -1412.6
+        ],
+        [
+          -842.5,
+          -720.1,
+          -1317.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -711.8,
+          -1331.1,
+          -2150.6
+        ],
+        [
+          -539,
+          -1193.1,
+          -2128
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-12-0",
+    "label": "BP12",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f2a531ccbae7770b805e031d230a378e2d51cb8df781ed511fe07f2e5b01bf0f",
+        "size": 616713
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -730.6,
+          -1312.5,
+          -304.3
+        ],
+        [
+          -537.1,
+          -1184.8,
+          -290.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2765.9,
+          -1479,
+          -2619.5
+        ],
+        [
+          2799.4,
+          -1326.6,
+          -2493
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-12-1",
+    "label": "BP12.1",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f2a531ccbae7770b805e031d230a378e2d51cb8df781ed511fe07f2e5b01bf0f",
+        "size": 616713
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -730.6,
+          -1312.5,
+          -304.3
+        ],
+        [
+          -537.1,
+          -1184.8,
+          -290.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -968,
+          -2218.2,
+          -2672
+        ],
+        [
+          -213,
+          -2175.8,
+          -2312.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-12-2",
+    "label": "BP12.2",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "77c0644240d93c8e507bdee6faec56a60064635907dd1d1a19db97212bc3766d",
+        "size": 66966
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -730.6,
+          -2218.2,
+          -2672
+        ],
+        [
+          -213,
+          -2175.8,
+          -2312.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2765.9,
+          -1479,
+          -2619.5
+        ],
+        [
+          2799.4,
+          -1326.6,
+          -2493
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "bp-13-0",
+    "label": "BP13",
+    "chapter": "Blast Pit",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "547355cf1c9a18733e90db27ca6546241dd0f6fb667a393aa867a3b4c5bb7276",
+        "size": 67507
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          841.9,
+          -928.3,
+          664.4
+        ],
+        [
+          873.6,
+          -793.2,
+          807.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          333.6,
+          -1179.1,
+          0
+        ],
+        [
+          360.4,
+          -1025.2,
+          128
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "pu-1-0",
+    "label": "PU1",
+    "chapter": "Power Up",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "4d82391eff6766f7a2f0d36e191e915519284f2bdcf3eb2c6741f2159915969d",
+        "size": 87921
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          436.2,
+          -1172.3,
+          0.2
+        ],
+        [
+          457.8,
+          -1003.8,
+          128
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2008.6,
+          -1845.9,
+          0
+        ],
+        [
+          2029.8,
+          -1480.2,
+          138
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "pu-1-1",
+    "label": "PU1.1",
+    "chapter": "Power Up",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "4d82391eff6766f7a2f0d36e191e915519284f2bdcf3eb2c6741f2159915969d",
+        "size": 87921
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          436.2,
+          -1172.3,
+          0.2
+        ],
+        [
+          457.8,
+          -1003.8,
+          128
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          961.2,
+          -786.6,
+          175.2
+        ],
+        [
+          1099.4,
+          -774.5,
+          256
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "pu-1-2",
+    "label": "PU1.2",
+    "chapter": "Power Up",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2c860ec6a7f79e7a5db74a07a210931f212a737ce5b18854cda3b74ffd758d0b",
+        "size": 220773
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          961.2,
+          -786.6,
+          175.2
+        ],
+        [
+          1099.4,
+          -774.5,
+          256
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2008.6,
+          -1845.9,
+          0
+        ],
+        [
+          2029.8,
+          -1480.2,
+          138
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-1-0",
+    "label": "OAR1",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "56557f45e67f8dbe7232a36b9e6c531b879d1d9e7f65a5c511f0d4c230cfdd59",
+        "size": 219017
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2073.1,
+          -2394.9,
+          -1352
+        ],
+        [
+          -2050,
+          -2033,
+          -1207
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1139,
+          -1668,
+          -1931.6
+        ],
+        [
+          -1112.2,
+          -1460,
+          -1808
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-2-0",
+    "label": "OAR2",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2854522ff1a2819371141591de19d2da049745540a85f64ca164a671c6c52d63",
+        "size": 254938
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2843.9,
+          -447.6,
+          -128.8
+        ],
+        [
+          -2801.3,
+          -240,
+          -3.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -3101,
+          312.9,
+          -12
+        ],
+        [
+          -3065.2,
+          502.7,
+          253
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-2-1",
+    "label": "OAR2.1",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2854522ff1a2819371141591de19d2da049745540a85f64ca164a671c6c52d63",
+        "size": 254938
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2843.9,
+          -447.6,
+          -128.8
+        ],
+        [
+          -2801.3,
+          -240,
+          -3.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2536.8,
+          -447,
+          92
+        ],
+        [
+          -2502.9,
+          -240,
+          293.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-2-2",
+    "label": "OAR2.2",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "456ad96e95a0620030cc05fee43c297d10c0d0934fa74ce5dc22f35f23556f66",
+        "size": 338717
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2536.8,
+          -447,
+          92
+        ],
+        [
+          -2502.9,
+          -240,
+          293.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -3101,
+          312.9,
+          -12
+        ],
+        [
+          -3065.2,
+          502.7,
+          253
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-3-0",
+    "label": "OAR3",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "fde5e20a69ee77abcce8ca8f942a907723b5f201073b8599b668cdcd5bf8e992",
+        "size": 338685
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -3178.7,
+          312.7,
+          -12
+        ],
+        [
+          -3143.6,
+          494.1,
+          261.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1556,
+          -2365.2,
+          1045.4
+        ],
+        [
+          -1351.2,
+          -2349.2,
+          1175
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-3-1",
+    "label": "OAR3.1",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "fde5e20a69ee77abcce8ca8f942a907723b5f201073b8599b668cdcd5bf8e992",
+        "size": 338685
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -3178.7,
+          312.7,
+          -12
+        ],
+        [
+          -3143.6,
+          494.1,
+          261.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -3711,
+          -844,
+          1044
+        ],
+        [
+          -3684.1,
+          -732.8,
+          1168.4
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-3-2",
+    "label": "OAR3.2",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "7ba0a3aba6bc60ed9a0a92edca060b2dda13afa8c7a5e6468ce183a29951419c",
+        "size": 434024
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -3711,
+          -844,
+          1044
+        ],
+        [
+          -3684.1,
+          -732.8,
+          1168.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1556,
+          -2365.2,
+          1045.4
+        ],
+        [
+          -1351.2,
+          -2349.2,
+          1175
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-4-0",
+    "label": "OAR4",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f6a72f94320eb385a2ebf42264e83cdcbc1ffd0c5938a31f81395b1498b5ad75",
+        "size": 433862
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1555.6,
+          -2400.8,
+          1045.8
+        ],
+        [
+          -1348,
+          -2366.1,
+          1168.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -985.9,
+          -528,
+          1046.5
+        ],
+        [
+          -944.8,
+          -320,
+          1163
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-5-0",
+    "label": "OAR5",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f6a72f94320eb385a2ebf42264e83cdcbc1ffd0c5938a31f81395b1498b5ad75",
+        "size": 433862
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          3324.6,
+          2404,
+          -303
+        ],
+        [
+          3349.4,
+          2612,
+          -184.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -3312,
+          1825.4,
+          -628
+        ],
+        [
+          -3104.7,
+          1864.9,
+          -50
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-5-1",
+    "label": "OAR5.1",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f6a72f94320eb385a2ebf42264e83cdcbc1ffd0c5938a31f81395b1498b5ad75",
+        "size": 433862
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          3324.6,
+          2404,
+          -303
+        ],
+        [
+          3349.4,
+          2612,
+          -184.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1176,
+          2424,
+          -304.8
+        ],
+        [
+          1196,
+          2572,
+          -178.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-5-2",
+    "label": "OAR5.2",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d77bda12b887537f20d55d809342d1e5d0c9c8265f213bd9e3c043c4f2081ecd",
+        "size": 606473
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1176,
+          2424,
+          -304.8
+        ],
+        [
+          1196,
+          2572,
+          -178.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -3312,
+          1825.4,
+          -628
+        ],
+        [
+          -3104.7,
+          1864.9,
+          -50
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-6-0",
+    "label": "OAR6",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "0b6dab58654774999320129df63926e77eef909d9339b7fb0a7bf0caecb6b3cb",
+        "size": 606432
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -160,
+          2078.6,
+          -627.5
+        ],
+        [
+          48,
+          2101.3,
+          -504
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -628,
+          -2824.2,
+          499.4
+        ],
+        [
+          -420,
+          -2795.1,
+          622.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-6-1",
+    "label": "OAR6.1",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "0b6dab58654774999320129df63926e77eef909d9339b7fb0a7bf0caecb6b3cb",
+        "size": 606432
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -160,
+          2078.6,
+          -627.5
+        ],
+        [
+          48,
+          2101.3,
+          -504
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1688,
+          -1451.7,
+          -627.7
+        ],
+        [
+          -1528.3,
+          -1428.8,
+          -492
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-6-2",
+    "label": "OAR6.2",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "c35143d159a1e5676a5298ff91b5ec03b127d30a604239cf36d8a0ecc0c56193",
+        "size": 694003
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1688,
+          -1451.7,
+          -627.7
+        ],
+        [
+          -1528.3,
+          -1428.8,
+          -492
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -628,
+          -2824.2,
+          499.4
+        ],
+        [
+          -420,
+          -2795.1,
+          622.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-7-0",
+    "label": "OAR7",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "57966e1037638b1a49f582c256edfa6ac6b773fc0fe14ae6925c62d4262b995a",
+        "size": 689518
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -3104,
+          -1598.6,
+          -192
+        ],
+        [
+          -2896.9,
+          -1577.7,
+          -68.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1440.6,
+          -3520.4,
+          -768
+        ],
+        [
+          -1425.4,
+          -3222.1,
+          -640
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-7-1",
+    "label": "OAR7.1",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "57966e1037638b1a49f582c256edfa6ac6b773fc0fe14ae6925c62d4262b995a",
+        "size": 689518
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -3104,
+          -1598.6,
+          -192
+        ],
+        [
+          -2896.9,
+          -1577.7,
+          -68.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1167.3,
+          -44,
+          192.3
+        ],
+        [
+          -1154.7,
+          164,
+          306.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-7-2",
+    "label": "OAR7.2",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f15adec6038cf0faa9c2d87844c6ecba111c76571f62d2a9acd60c5f4b10747e",
+        "size": 758438
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1167.3,
+          -44,
+          192.3
+        ],
+        [
+          -1154.7,
+          164,
+          306.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1440.6,
+          -3520.4,
+          -768
+        ],
+        [
+          -1425.4,
+          -3222.1,
+          -640
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-8-0",
+    "label": "OAR8",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "83605dd83536b6d21753c102a01ac25fd78f0ff61200b1f45bbba23d4a8e4920",
+        "size": 758158
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1440.6,
+          -3604,
+          -768
+        ],
+        [
+          -1419,
+          -3222.3,
+          -640.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -76,
+          -264.6,
+          -783.2
+        ],
+        [
+          180,
+          -247.7,
+          -626.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-8-1",
+    "label": "OAR8.1",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "83605dd83536b6d21753c102a01ac25fd78f0ff61200b1f45bbba23d4a8e4920",
+        "size": 758158
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1440.6,
+          -3604,
+          -768
+        ],
+        [
+          -1419,
+          -3222.3,
+          -640.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -134,
+          -2412,
+          -768
+        ],
+        [
+          -120.8,
+          -2192.4,
+          -622.6
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-8-2",
+    "label": "OAR8.2",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "6cc1cab169e599f981b97643ee4eee0fc4868a7622af74765a32d02470c412ff",
+        "size": 817035
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -134,
+          -2412,
+          -768
+        ],
+        [
+          -120.8,
+          -2192.4,
+          -622.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -76,
+          -264.6,
+          -783.2
+        ],
+        [
+          180,
+          -247.7,
+          -626.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-9-0",
+    "label": "OAR9",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "09973d567f728661ac25bb81641ff430345e35366bc9cb239b94fe3c8a12ebbf",
+        "size": 814588
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -76,
+          -264.6,
+          -783.2
+        ],
+        [
+          180,
+          -247.7,
+          -626.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -76,
+          -890,
+          -784
+        ],
+        [
+          174.1,
+          -873.6,
+          -617
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-9-1",
+    "label": "OAR9.1",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "09973d567f728661ac25bb81641ff430345e35366bc9cb239b94fe3c8a12ebbf",
+        "size": 814588
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -76,
+          -264.6,
+          -783.2
+        ],
+        [
+          180,
+          -247.7,
+          -626.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          837.9,
+          306.8,
+          -600
+        ],
+        [
+          876.4,
+          346,
+          -524
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-9-2",
+    "label": "OAR9.2",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "c9e096daffd3acfce3cfe931559ba769efefee69631ae049a3459657a6c43e14",
+        "size": 877530
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          837.9,
+          306.8,
+          -600
+        ],
+        [
+          876.4,
+          346,
+          -524
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -76,
+          -890,
+          -784
+        ],
+        [
+          174.1,
+          -873.6,
+          -617
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "oar-10-0",
+    "label": "OAR10",
+    "chapter": "On A Rail",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "370138f3f1375d2ab1812d0ecb63c1903c72445615281cab555aa755ce80c149",
+        "size": 875389
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -74.9,
+          -602.3,
+          -784
+        ],
+        [
+          177.6,
+          -580.9,
+          -616
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1628,
+          -1905.8,
+          -1487.5
+        ],
+        [
+          1836,
+          -1880.1,
+          -1363
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-1-0",
+    "label": "APP1",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d4bc647fb1b867698b2137c39be1158df8fc7c33f48c6037cb4624de37d24e0b",
+        "size": 875237
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -115.5,
+          1385.9,
+          1524
+        ],
+        [
+          66.8,
+          1410.4,
+          1660.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -615.3,
+          43.1,
+          516
+        ],
+        [
+          -500,
+          58.7,
+          642
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-2-0",
+    "label": "APP2",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "6b7148ae6291a40c8cd996e6de4cf429804f536589c43c280658072c8f2656b9",
+        "size": 954923
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -615.9,
+          76.6,
+          516
+        ],
+        [
+          -498.9,
+          100,
+          643.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1456,
+          1702.8,
+          872.6
+        ],
+        [
+          1552,
+          1729.3,
+          1030
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-2-1",
+    "label": "APP2.1",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "6b7148ae6291a40c8cd996e6de4cf429804f536589c43c280658072c8f2656b9",
+        "size": 954923
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -615.9,
+          76.6,
+          516
+        ],
+        [
+          -498.9,
+          100,
+          643.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2090.3,
+          340,
+          848
+        ],
+        [
+          2102.3,
+          454.9,
+          974.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-2-2",
+    "label": "APP2.2",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2cc8d0cf29b7fc7c096b13174ce38b1ae937bc7eeb3fc09e027d7b8e97031887",
+        "size": 1031123
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2090.3,
+          340,
+          848
+        ],
+        [
+          2102.3,
+          454.9,
+          974.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1456,
+          1702.8,
+          872.6
+        ],
+        [
+          1552,
+          1729.3,
+          1030
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-3-0",
+    "label": "APP3",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "7d01ac33c7578ce1a05e2edf2f006a33b75b1631b5b36906f91545db4d9d2ae3",
+        "size": 1029975
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1456,
+          1657.4,
+          904.2
+        ],
+        [
+          1552,
+          1686.1,
+          1057.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -663.9,
+          2080,
+          1117.1
+        ],
+        [
+          -648.1,
+          2224,
+          1313
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-3-1",
+    "label": "APP3.1",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "7d01ac33c7578ce1a05e2edf2f006a33b75b1631b5b36906f91545db4d9d2ae3",
+        "size": 1029975
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1456,
+          1657.4,
+          904.2
+        ],
+        [
+          1552,
+          1686.1,
+          1057.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1200,
+          1868.2,
+          848
+        ],
+        [
+          1295.5,
+          1883.5,
+          972.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-3-2",
+    "label": "APP3.2",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "fd07a02eed556f6018662f7ee6185a720e3bf38f3580b6e954e9bd79308381c2",
+        "size": 1115666
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1200,
+          1868.2,
+          848
+        ],
+        [
+          1295.5,
+          1883.5,
+          972.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -663.9,
+          2080,
+          1117.1
+        ],
+        [
+          -648.1,
+          2224,
+          1313
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-4-0",
+    "label": "APP4",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "e7f0c474e175db9baf99ea05686ca980070a0ec2abeb10e20b7285427ab3275c",
+        "size": 1116121
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          3618,
+          1481.4,
+          640
+        ],
+        [
+          3760,
+          1495.2,
+          821.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2162.3,
+          304.4,
+          168
+        ],
+        [
+          2180.1,
+          512,
+          398.8
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-4-1",
+    "label": "APP4.1",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "e7f0c474e175db9baf99ea05686ca980070a0ec2abeb10e20b7285427ab3275c",
+        "size": 1116121
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          3618,
+          1481.4,
+          640
+        ],
+        [
+          3760,
+          1495.2,
+          821.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1892,
+          664.2,
+          720
+        ],
+        [
+          2019.3,
+          687.5,
+          846
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-4-2",
+    "label": "APP4.2",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "7b9d4ee1cf22aa702e74ca41477e5dffc73fc3d93a5623108326ec1f0d1e6565",
+        "size": 1190883
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1892,
+          664.2,
+          720
+        ],
+        [
+          2019.3,
+          687.5,
+          846
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2162.3,
+          304.4,
+          168
+        ],
+        [
+          2180.1,
+          512,
+          398.8
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-5-0",
+    "label": "APP5",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "cd3797160705a0eb9c7458ce13283e7b86aa1ad078187666a60a589dfbd9df4f",
+        "size": 1194545
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2046,
+          304.1,
+          168
+        ],
+        [
+          2077.5,
+          512,
+          338.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1760.8,
+          -640.8,
+          788
+        ],
+        [
+          -1743.2,
+          -552,
+          920
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-5-1",
+    "label": "APP5.1",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "cd3797160705a0eb9c7458ce13283e7b86aa1ad078187666a60a589dfbd9df4f",
+        "size": 1194545
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2046,
+          304.1,
+          168
+        ],
+        [
+          2077.5,
+          512,
+          338.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1117,
+          -1439.6,
+          788
+        ],
+        [
+          1143.3,
+          -1125,
+          1056
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-5-2",
+    "label": "APP5.2",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "edad4936a9342bee8989c80b10f0120f11527d1613721b919b3d48053bf17597",
+        "size": 1273291
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1117,
+          -1439.6,
+          788
+        ],
+        [
+          1143.3,
+          -1125,
+          1056
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1760.8,
+          -640.8,
+          788
+        ],
+        [
+          -1743.2,
+          -552,
+          920
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "app-6-0",
+    "label": "APP6",
+    "chapter": "Apprehension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "355e1c346c6da3dcb413cd9a9f718023738960cae3e7fb07bddaae3a5c7ce176",
+        "size": 1270193
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1773.5,
+          -647.1,
+          788
+        ],
+        [
+          -1748.3,
+          -552,
+          914
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2683.9,
+          82.8,
+          157.1
+        ],
+        [
+          -2664.1,
+          168.6,
+          234
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-1-0",
+    "label": "RP1",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ff1104cb7feab6ca2bae504b78970838ba7c01603145ff7954ca027e0eb4ab1a",
+        "size": 46615
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2603,
+          83.2,
+          147.9
+        ],
+        [
+          -2570.7,
+          167.8,
+          227.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -163.7,
+          706.1,
+          106
+        ],
+        [
+          -126.7,
+          766.2,
+          165
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-1-1",
+    "label": "RP1.1",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ff1104cb7feab6ca2bae504b78970838ba7c01603145ff7954ca027e0eb4ab1a",
+        "size": 46615
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2603,
+          83.2,
+          147.9
+        ],
+        [
+          -2570.7,
+          167.8,
+          227.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          339.7,
+          407.3,
+          32.1
+        ],
+        [
+          556.6,
+          492.6,
+          195.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-1-2",
+    "label": "RP1.2",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "9751703c3cd18c63cf8a6b4345db793ac0cf4569ac584137dd8e7839371c3e45",
+        "size": 49718
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          339.7,
+          407.3,
+          32.1
+        ],
+        [
+          556.6,
+          492.6,
+          195.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -163.7,
+          706.1,
+          106
+        ],
+        [
+          -126.7,
+          766.2,
+          165
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-2-0",
+    "label": "RP2",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "51d18b2cb75c8489c81cd5c66871d34b2492e73a0770fede4bee063d3fa4ba1e",
+        "size": 50111
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -136.9,
+          -1598,
+          120.3
+        ],
+        [
+          -116.5,
+          -1539.3,
+          191.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1434.6,
+          -354.1,
+          -188
+        ],
+        [
+          -1380.5,
+          -334.9,
+          -142
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-2-1",
+    "label": "RP2.1",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "51d18b2cb75c8489c81cd5c66871d34b2492e73a0770fede4bee063d3fa4ba1e",
+        "size": 50111
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -136.9,
+          -1598,
+          120.3
+        ],
+        [
+          -116.5,
+          -1539.3,
+          191.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          53.3,
+          1296,
+          -141.6
+        ],
+        [
+          73.1,
+          1440,
+          15
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-2-2",
+    "label": "RP2.2",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "80ab3063ad5998dc3c36a7ac78a524a5aa08965ba2bee9197187c27637c0a29d",
+        "size": 173193
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          53.3,
+          1296,
+          -141.6
+        ],
+        [
+          73.1,
+          1440,
+          15
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1434.6,
+          -354.1,
+          -188
+        ],
+        [
+          -1380.5,
+          -334.9,
+          -142
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-3-0",
+    "label": "RP3",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8bed07a75a05f347c735cfe839403b8530ca680dc76a4efee1b7740a1ebeb844",
+        "size": 171864
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          901.9,
+          56.2,
+          -186.4
+        ],
+        [
+          956,
+          69.7,
+          -142.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -460.9,
+          -2688,
+          -450.7
+        ],
+        [
+          -440,
+          -2560,
+          -339
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-3-1",
+    "label": "RP3.1",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8bed07a75a05f347c735cfe839403b8530ca680dc76a4efee1b7740a1ebeb844",
+        "size": 171864
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          901.9,
+          56.2,
+          -186.4
+        ],
+        [
+          956,
+          69.7,
+          -142.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -382.3,
+          368,
+          -922.2
+        ],
+        [
+          -359.9,
+          653.8,
+          -816
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-3-2",
+    "label": "RP3.2",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "962a24124475a9fd9eb21f2ab35199115ad9972ffee665c491b11649533be74a",
+        "size": 261729
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -382.3,
+          368,
+          -922.2
+        ],
+        [
+          -359.9,
+          653.8,
+          -816
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -460.9,
+          -2688,
+          -450.7
+        ],
+        [
+          -440,
+          -2560,
+          -339
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-4-0",
+    "label": "RP4",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "90debfb285dd845b153181773b47d98bf1ac64704b702e8d84745d122a93986c",
+        "size": 262343
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1406.5,
+          -896,
+          -479.4
+        ],
+        [
+          -1358.6,
+          -768,
+          -392.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -80,
+          -2761.8,
+          -1376
+        ],
+        [
+          -16.7,
+          -2743.2,
+          -1280
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-4-1",
+    "label": "RP4.1",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "90debfb285dd845b153181773b47d98bf1ac64704b702e8d84745d122a93986c",
+        "size": 262343
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1406.5,
+          -896,
+          -479.4
+        ],
+        [
+          -1358.6,
+          -768,
+          -392.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1322.8,
+          140.3,
+          -1264
+        ],
+        [
+          1335.9,
+          256,
+          -1091.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "rp-4-2",
+    "label": "RP4.2",
+    "chapter": "Residue Processing",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "e1d6db6125c1eff1c5b62192ef5ce0009716e8f3bb398750c6269b49afbdd86d",
+        "size": 352322
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1322.8,
+          140.3,
+          -1264
+        ],
+        [
+          1335.9,
+          256,
+          -1091.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -80,
+          -2761.8,
+          -1376
+        ],
+        [
+          -16.7,
+          -2743.2,
+          -1280
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-1-0",
+    "label": "QE1",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "a441b93dd91037f3db4808caf155639c496f9d466b48a3e4efe805f034a780e9",
+        "size": 351353
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2048,
+          1139.5,
+          -256
+        ],
+        [
+          2109.5,
+          1157.1,
+          -161.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -550.7,
+          -123.8,
+          113.5
+        ],
+        [
+          -525.1,
+          64,
+          344
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-1-1",
+    "label": "QE1.1",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "a441b93dd91037f3db4808caf155639c496f9d466b48a3e4efe805f034a780e9",
+        "size": 351353
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2048,
+          1139.5,
+          -256
+        ],
+        [
+          2109.5,
+          1157.1,
+          -161.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1702.2,
+          260.9,
+          0
+        ],
+        [
+          1804.8,
+          284.6,
+          320
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-1-2",
+    "label": "QE1.2",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "79d0dfb054406d6cfea82f485046bc73248e3fa0a767e684beb5844a41ee7040",
+        "size": 410237
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1702.2,
+          260.9,
+          0
+        ],
+        [
+          1804.8,
+          284.6,
+          320
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -550.7,
+          -123.8,
+          113.5
+        ],
+        [
+          -525.1,
+          64,
+          344
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-2-0",
+    "label": "QE2",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "973af63e6a9c4304b7a481ae383de099bcae1d15393f33eae6da98cbaf5b4dcf",
+        "size": 408670
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          773.7,
+          -112,
+          129.9
+        ],
+        [
+          794.8,
+          46.8,
+          288
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -331.8,
+          1808.1,
+          224.3
+        ],
+        [
+          -307.5,
+          1968,
+          362
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-2-1",
+    "label": "QE2.1",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "973af63e6a9c4304b7a481ae383de099bcae1d15393f33eae6da98cbaf5b4dcf",
+        "size": 408670
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          773.7,
+          -112,
+          129.9
+        ],
+        [
+          794.8,
+          46.8,
+          288
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2602.1,
+          725.4,
+          0
+        ],
+        [
+          -2432,
+          755.7,
+          155.8
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-2-2",
+    "label": "QE2.2",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "b2ec546d4e52b4c1f80a97132a00f23f9c6d4f4627abffc293d88af5bd6fb4f4",
+        "size": 534496
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2602.1,
+          725.4,
+          0
+        ],
+        [
+          -2432,
+          755.7,
+          155.8
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -331.8,
+          1808.1,
+          224.3
+        ],
+        [
+          -307.5,
+          1968,
+          362
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-3-0",
+    "label": "QE3",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "99db75b0cdb98b0f7ecda9a3aa31303039baddfda0290b99a5dbf61271ae4681",
+        "size": 532548
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1294.8,
+          280,
+          255.4
+        ],
+        [
+          1327.9,
+          429,
+          415.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          880,
+          226.5,
+          117.5
+        ],
+        [
+          1040,
+          252.9,
+          262.8
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-4-0",
+    "label": "QE4",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "4eabf6a96b82da7652bd7bd907608f1a8ee15e13d5211fb773a49883babf8ccd",
+        "size": 628998
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -654.5,
+          1672.5,
+          80
+        ],
+        [
+          -511.2,
+          1700.9,
+          220.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -64,
+          -1244.5,
+          129.6
+        ],
+        [
+          64,
+          -1220.3,
+          235
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "qe-5-0",
+    "label": "QE5",
+    "chapter": "Questionable Ethics",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "a44e3fa9475db0788cc65b9a6b532a49d5846c66576b1568a32f4775654a4047",
+        "size": 631838
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -64,
+          -1323.4,
+          133.4
+        ],
+        [
+          62.8,
+          -1295.7,
+          280
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1400,
+          -2124.9,
+          66.3
+        ],
+        [
+          -1128,
+          -2096.3,
+          268
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-1-0",
+    "label": "ST1",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "4d444e8cc8285158b6b3224874f00ab3c1ee64b9897cf8d92ac5d94a8ca010d5",
+        "size": 663128
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1698.4,
+          589.2,
+          32
+        ],
+        [
+          1963.7,
+          614.1,
+          306.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1292,
+          -3654.2,
+          -1091.5
+        ],
+        [
+          1304,
+          -3584,
+          -1026
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-2-0",
+    "label": "ST2",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2c107f5659ca8b99e87c7c0b93de79c1d72181793f1fa54cbc3d5fc601b4ae07",
+        "size": 758073
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2137,
+          -812.7,
+          280
+        ],
+        [
+          -2114.8,
+          -759.6,
+          355.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          491.6,
+          294.6,
+          896
+        ],
+        [
+          519.6,
+          418.2,
+          1047
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-2-1",
+    "label": "ST2.1",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2c107f5659ca8b99e87c7c0b93de79c1d72181793f1fa54cbc3d5fc601b4ae07",
+        "size": 758073
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2137,
+          -812.7,
+          280
+        ],
+        [
+          -2114.8,
+          -759.6,
+          355.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -261.4,
+          -100.8,
+          896
+        ],
+        [
+          -172.6,
+          -76.9,
+          1042.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-2-2",
+    "label": "ST2.2",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2c107f5659ca8b99e87c7c0b93de79c1d72181793f1fa54cbc3d5fc601b4ae07",
+        "size": 758073
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -261.4,
+          -100.8,
+          896
+        ],
+        [
+          -172.6,
+          -76.9,
+          1042.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          491.6,
+          294.6,
+          896
+        ],
+        [
+          519.6,
+          418.2,
+          1047
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-3-0",
+    "label": "ST3",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "c2017f8487a1d379a0b0d6206cb4c1fc0440a4937b146b307b20c01c738e77e9",
+        "size": 794647
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          562.7,
+          -1128.4,
+          896
+        ],
+        [
+          581.8,
+          -1003.7,
+          1050.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2416.8,
+          -772.2,
+          503.2
+        ],
+        [
+          2472.8,
+          -750.9,
+          559
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-3-1",
+    "label": "ST3.1",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "c2017f8487a1d379a0b0d6206cb4c1fc0440a4937b146b307b20c01c738e77e9",
+        "size": 794647
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          562.7,
+          -1128.4,
+          896
+        ],
+        [
+          581.8,
+          -1003.7,
+          1050.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1465.8,
+          -340.7,
+          480
+        ],
+        [
+          1490.5,
+          -216,
+          576.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-3-2",
+    "label": "ST3.2",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "59d422376748aa01256f652041c38f0c657e0a3f3787e97c5d60765ebee91ddb",
+        "size": 894266
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1465.8,
+          -340.7,
+          480
+        ],
+        [
+          1490.5,
+          -216,
+          576.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2416.8,
+          -772.2,
+          503.2
+        ],
+        [
+          2472.8,
+          -750.9,
+          559
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-4-0",
+    "label": "ST4",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "a640adaf1dc418be703ac12efefb7ea6f0c1947812ea1fbed3cbc6e14bd514f2",
+        "size": 895438
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          765.2,
+          966.7,
+          815.9
+        ],
+        [
+          840,
+          989.3,
+          888
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1097.9,
+          801.9,
+          817.9
+        ],
+        [
+          -1075,
+          845.8,
+          861.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-5-0",
+    "label": "ST5",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "9b983442aeb64df085b6e6877b3fe625376ba1026531b4e4e401b7d667e0e1d4",
+        "size": 1001366
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          303.9,
+          1082.2,
+          -111.4
+        ],
+        [
+          315.8,
+          1124.6,
+          -65.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1968.5,
+          2336.4,
+          -208
+        ],
+        [
+          -1935.2,
+          2554.1,
+          128
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-5-1",
+    "label": "ST5.1",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "9b983442aeb64df085b6e6877b3fe625376ba1026531b4e4e401b7d667e0e1d4",
+        "size": 1001366
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          303.9,
+          1082.2,
+          -111.4
+        ],
+        [
+          315.8,
+          1124.6,
+          -65.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -452.5,
+          -272,
+          192
+        ],
+        [
+          -385.2,
+          365.7,
+          701.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-5-2",
+    "label": "ST5.2",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "c17e67a94ff02703d35eea0b7d9cb92f4450da4e8de1d781cacb0e5abc5e8417",
+        "size": 1001222
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -452.5,
+          -272,
+          192
+        ],
+        [
+          -385.2,
+          365.7,
+          701.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1968.5,
+          2336.4,
+          -208
+        ],
+        [
+          -1935.2,
+          2554.1,
+          128
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-6-0",
+    "label": "ST6",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "5e7e1f78138ffeca173fb36194618568e9487376c5a44277a2b595ca9e139ec3",
+        "size": 1002026
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1441.1,
+          -139.9,
+          -352
+        ],
+        [
+          1451.1,
+          38,
+          -176
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -208,
+          -730.1,
+          -230
+        ],
+        [
+          -11.4,
+          -614.2,
+          -160
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-7-0",
+    "label": "ST7",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "02d5d7614b24f3222e363eb0230f764b404b2fb0da92c47a2b288a7608649f81",
+        "size": 1097342
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -207.6,
+          -784,
+          -238.9
+        ],
+        [
+          0,
+          -577,
+          -221.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -752,
+          1048.7,
+          -1144.8
+        ],
+        [
+          -544,
+          1069.2,
+          -1008
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-7-1",
+    "label": "ST7.1",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "02d5d7614b24f3222e363eb0230f764b404b2fb0da92c47a2b288a7608649f81",
+        "size": 1097342
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -207.6,
+          -784,
+          -238.9
+        ],
+        [
+          0,
+          -577,
+          -221.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          136.8,
+          96,
+          -312.5
+        ],
+        [
+          344,
+          306,
+          -293.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-7-2",
+    "label": "ST7.2",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "b22e02481b7369fbf5ee8a1c6416499f53601c59dd2168508ca0b4f31381dccb",
+        "size": 104251
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          136.8,
+          96,
+          -312.5
+        ],
+        [
+          344,
+          306,
+          -293.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -752,
+          1048.7,
+          -1144.8
+        ],
+        [
+          -544,
+          1069.2,
+          -1008
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-8-0",
+    "label": "ST8",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "116b36e0250214670a2fd64c88d8cb44526ff0211feceb6e00837c2556a7d36f",
+        "size": 104551
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2566.5,
+          -862.7,
+          -2240
+        ],
+        [
+          -2402.8,
+          -839.6,
+          -2069.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -798.4,
+          -2621.5,
+          -1696
+        ],
+        [
+          -776.8,
+          -2272,
+          -1470
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-8-1",
+    "label": "ST8.1",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "116b36e0250214670a2fd64c88d8cb44526ff0211feceb6e00837c2556a7d36f",
+        "size": 104551
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2566.5,
+          -862.7,
+          -2240
+        ],
+        [
+          -2402.8,
+          -839.6,
+          -2069.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1280,
+          -115.2,
+          -1588.4
+        ],
+        [
+          -1087,
+          544,
+          -1544.5
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-8-2",
+    "label": "ST8.2",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2f91f1f7109bcd23209c02d9a35d4dca75a3f2b9108468fb67f3cd29f0a5cf68",
+        "size": 243219
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1280,
+          -115.2,
+          -1588.4
+        ],
+        [
+          -1087,
+          544,
+          -1544.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -798.4,
+          -2621.5,
+          -1696
+        ],
+        [
+          -776.8,
+          -2272,
+          -1470
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-9-0",
+    "label": "ST9",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "23f90fad8a1881ca2e8d25b078e8401dd07c2ba8aa7e8929c46e9d0a409c2c29",
+        "size": 237707
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          431.3,
+          2496,
+          -1696
+        ],
+        [
+          502,
+          2833.2,
+          -1475.5
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -753.1,
+          330,
+          -1806.9
+        ],
+        [
+          -735.3,
+          402,
+          -1703
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-10-0",
+    "label": "ST10",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8523c19f2a87843d8a28ca5c5711743d0efc05ec9f22cd7ea0b59bd66d1ae4f8",
+        "size": 410408
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1082.3,
+          -2354.4,
+          -1808
+        ],
+        [
+          1107.4,
+          -2284,
+          -1700.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2517.5,
+          2373.8,
+          -1887.5
+        ],
+        [
+          2632,
+          2397,
+          -1730
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-10-1",
+    "label": "ST10.1",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8523c19f2a87843d8a28ca5c5711743d0efc05ec9f22cd7ea0b59bd66d1ae4f8",
+        "size": 410408
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1082.3,
+          -2354.4,
+          -1808
+        ],
+        [
+          1107.4,
+          -2284,
+          -1700.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -321.5,
+          2575.8,
+          -1656.8
+        ],
+        [
+          64,
+          2630.1,
+          -1403.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "st-10-2",
+    "label": "ST10.2",
+    "chapter": "Surface Tension",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "afcf9191f64cbe81572a22cd9d3bfd8d47a403979793fbfed004205967fb65ad",
+        "size": 472379
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -321.5,
+          2575.8,
+          -1656.8
+        ],
+        [
+          64,
+          2630.1,
+          -1403.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2517.5,
+          2373.8,
+          -1887.5
+        ],
+        [
+          2632,
+          2397,
+          -1730
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-1-0",
+    "label": "FAF1",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ae91fc6bb8053f918943096b705a780ba2e0340deb67b125fc90e370b71109a5",
+        "size": 469394
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          776.3,
+          693.3,
+          620.9
+        ],
+        [
+          892,
+          711,
+          764
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2052,
+          -12,
+          178.8
+        ],
+        [
+          -1992.1,
+          40.1,
+          196.6
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-1-1",
+    "label": "FAF1.1",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ae91fc6bb8053f918943096b705a780ba2e0340deb67b125fc90e370b71109a5",
+        "size": 469394
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          776.3,
+          693.3,
+          620.9
+        ],
+        [
+          892,
+          711,
+          764
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -696.4,
+          -205.9,
+          490.4
+        ],
+        [
+          -644.7,
+          16,
+          662.9
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-1-2",
+    "label": "FAF1.2",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d12de1345703e2a04e79841adcbe7165f1f3c0505cb536b97267bc3dee8b7f74",
+        "size": 171096
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -696.4,
+          -205.9,
+          490.4
+        ],
+        [
+          -644.7,
+          16,
+          662.9
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -2052,
+          -12,
+          178.8
+        ],
+        [
+          -1992.1,
+          40.1,
+          196.6
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-2-0",
+    "label": "FAF2",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "0dd961a40e42282992052985f2a14cb3ca99c6f14069493e00f896a777ada6c4",
+        "size": 172671
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2098.1,
+          1258.2,
+          468.9
+        ],
+        [
+          -2039.7,
+          1311.6,
+          492
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -724,
+          1430.8,
+          -263.1
+        ],
+        [
+          -588,
+          1451.8,
+          -168.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-2-1",
+    "label": "FAF2.1",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "0dd961a40e42282992052985f2a14cb3ca99c6f14069493e00f896a777ada6c4",
+        "size": 172671
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -2098.1,
+          1258.2,
+          468.9
+        ],
+        [
+          -2039.7,
+          1311.6,
+          492
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -3586.5,
+          -24.2,
+          296
+        ],
+        [
+          -3444,
+          5.6,
+          411.7
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-2-2",
+    "label": "FAF2.2",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f000687b735ce36cd393e5e69b0106a76b86bb8c3aa7835436ef718031fb64b2",
+        "size": 260814
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -3586.5,
+          -24.2,
+          296
+        ],
+        [
+          -3444,
+          5.6,
+          411.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -724,
+          1430.8,
+          -263.1
+        ],
+        [
+          -588,
+          1451.8,
+          -168.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-3-0",
+    "label": "FAF3",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d52226cf0407d514942e18cfe1df60d68c91a81543a89e4ee499a579cc2649bc",
+        "size": 257236
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -724,
+          1430.8,
+          -263.1
+        ],
+        [
+          -588,
+          1451.8,
+          -168.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1717.8,
+          984.8,
+          2080
+        ],
+        [
+          1974.5,
+          1006.2,
+          2256
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-3-1",
+    "label": "FAF3.1",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d52226cf0407d514942e18cfe1df60d68c91a81543a89e4ee499a579cc2649bc",
+        "size": 257236
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -724,
+          1430.8,
+          -263.1
+        ],
+        [
+          -588,
+          1451.8,
+          -168.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -347.4,
+          -1078.1,
+          -352
+        ],
+        [
+          -123.7,
+          -1056.8,
+          -80
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "faf-3-2",
+    "label": "FAF3.2",
+    "chapter": "Forget About Freeman!",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "1d46244ccd8d90b5caba904708a5f0f9f0c2d1e82475143b1b13a7ac79c54527",
+        "size": 342737
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -347.4,
+          -1078.1,
+          -352
+        ],
+        [
+          -123.7,
+          -1056.8,
+          -80
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1717.8,
+          984.8,
+          2080
+        ],
+        [
+          1974.5,
+          1006.2,
+          2256
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-1-0",
+    "label": "LC1",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2783f63cbb17e3d305cc28cdf4dff59496a7f73a4763df53dee35b410e4a330d",
+        "size": 351839
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1717.8,
+          984.8,
+          2080
+        ],
+        [
+          1974.5,
+          1006.2,
+          2256
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1872,
+          392.4,
+          128
+        ],
+        [
+          2029.9,
+          424.9,
+          268
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-1-1",
+    "label": "LC1.1",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2783f63cbb17e3d305cc28cdf4dff59496a7f73a4763df53dee35b410e4a330d",
+        "size": 351839
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1717.8,
+          984.8,
+          2080
+        ],
+        [
+          1974.5,
+          1006.2,
+          2256
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2760,
+          2470.7,
+          128
+        ],
+        [
+          2839.7,
+          2487.6,
+          255.7
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-1-2",
+    "label": "LC1.2",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "fa88b145c4422639fd62c4b47a8fc620ad1e93059f365da2ce3bf05904b6eae8",
+        "size": 395566
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2760,
+          2470.7,
+          128
+        ],
+        [
+          2839.7,
+          2487.6,
+          255.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1872,
+          392.4,
+          128
+        ],
+        [
+          2029.9,
+          424.9,
+          268
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-2-0",
+    "label": "LC2",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "75abb9dce009ff6acb5ed1035b5a3703ef8525ecdf7bf9a0fe3bf04039bdad98",
+        "size": 395480
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1874.3,
+          447.5,
+          128
+        ],
+        [
+          2032,
+          478.9,
+          270.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1104,
+          1061.3,
+          -313.7
+        ],
+        [
+          -920.1,
+          1248,
+          -244
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-2-1",
+    "label": "LC2.1",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "75abb9dce009ff6acb5ed1035b5a3703ef8525ecdf7bf9a0fe3bf04039bdad98",
+        "size": 395480
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1874.3,
+          447.5,
+          128
+        ],
+        [
+          2032,
+          478.9,
+          270.6
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -466.8,
+          1452.5,
+          128
+        ],
+        [
+          -452.4,
+          1568,
+          246.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-2-2",
+    "label": "LC2.2",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "1783911660d099d3033b6f7ca47a2ff0cff7fbb6d52257bc0631c309deb13bcb",
+        "size": 459430
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -466.8,
+          1452.5,
+          128
+        ],
+        [
+          -452.4,
+          1568,
+          246.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1104,
+          1061.3,
+          -313.7
+        ],
+        [
+          -920.1,
+          1248,
+          -244
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-3-0",
+    "label": "LC3",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "c982f2ea892b81b7b0c07fdf8ed6bd44c3822ab7289a0b331de380b92b9bac01",
+        "size": 458796
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1770.7,
+          -480,
+          486.4
+        ],
+        [
+          -1615.2,
+          -288,
+          536.7
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1050.1,
+          -24.7,
+          -488.4
+        ],
+        [
+          -1036.8,
+          32,
+          -428
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-4-0",
+    "label": "LC4",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "5006a6e8c79685402665b6cce814f05e4350135b422815f67fd9d79670d5b01f",
+        "size": 587885
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1004,
+          -35.3,
+          -512
+        ],
+        [
+          -991.7,
+          31.1,
+          -431.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          378.8,
+          760,
+          640.5
+        ],
+        [
+          408.2,
+          899.8,
+          748
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-5-0",
+    "label": "LC5",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "216db620264c6b1e14b7f3388fba316945e8b8522888f5976ddca8d4bb7f4897",
+        "size": 673453
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          311.5,
+          760,
+          -2171.6
+        ],
+        [
+          327.4,
+          899.1,
+          -2067.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -56.9,
+          -827.6,
+          -767.1
+        ],
+        [
+          72,
+          -795.9,
+          -649
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-5-1",
+    "label": "LC5.1",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "216db620264c6b1e14b7f3388fba316945e8b8522888f5976ddca8d4bb7f4897",
+        "size": 673453
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          311.5,
+          760,
+          -2171.6
+        ],
+        [
+          327.4,
+          899.1,
+          -2067.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -71,
+          -636.2,
+          -1408
+        ],
+        [
+          55.5,
+          -602.8,
+          -1152
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-5-2",
+    "label": "LC5.2",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "216db620264c6b1e14b7f3388fba316945e8b8522888f5976ddca8d4bb7f4897",
+        "size": 673453
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -71,
+          -636.2,
+          -1408
+        ],
+        [
+          55.5,
+          -602.8,
+          -1152
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -56.9,
+          -827.6,
+          -767.1
+        ],
+        [
+          72,
+          -795.9,
+          -649
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-6-0",
+    "label": "LC6",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "3f09d5cab25e2267b336e8b65c6443fe0c71df08b3c51b5e8a3a99c6778977c5",
+        "size": 806497
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -48,
+          -893.7,
+          -768
+        ],
+        [
+          44.7,
+          -865.1,
+          -673.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -56,
+          -56,
+          -172.8
+        ],
+        [
+          54.1,
+          46.5,
+          -136.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-6-1",
+    "label": "LC6.1",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "3f09d5cab25e2267b336e8b65c6443fe0c71df08b3c51b5e8a3a99c6778977c5",
+        "size": 806497
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -48,
+          -893.7,
+          -768
+        ],
+        [
+          44.7,
+          -865.1,
+          -673.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1551.2,
+          -102.8,
+          -248
+        ],
+        [
+          1712,
+          -80,
+          -132.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "lc-6-2",
+    "label": "LC6.2",
+    "chapter": "Lambda Core",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "37c7782ff88cac30ec091d66a47ddac67ac3091731dc2dce174317fc38e2c18e",
+        "size": 928194
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1551.2,
+          -102.8,
+          -248
+        ],
+        [
+          1712,
+          -80,
+          -132.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -56,
+          -56,
+          -172.8
+        ],
+        [
+          54.1,
+          46.5,
+          -136.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "xen-1-0",
+    "label": "XEN1",
+    "chapter": "Xen",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ed47fbfed13e1774b42cc403cdeaf60ec56d4406d4d2ca2aefea798c259bd80f",
+        "size": 925898
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -117.8,
+          1750.7,
+          1664
+        ],
+        [
+          173.5,
+          2002.6,
+          2314
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2787.8,
+          -85,
+          0
+        ],
+        [
+          2897.7,
+          49.4,
+          1728
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "xen-1-1",
+    "label": "XEN1.1",
+    "chapter": "Xen",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ed47fbfed13e1774b42cc403cdeaf60ec56d4406d4d2ca2aefea798c259bd80f",
+        "size": 925898
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -117.8,
+          1750.7,
+          1664
+        ],
+        [
+          173.5,
+          2002.6,
+          2314
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -307.1,
+          -313.5,
+          -128
+        ],
+        [
+          -272.6,
+          -242.9,
+          20.1
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "xen-1-2",
+    "label": "XEN1.2",
+    "chapter": "Xen",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "8182bc2e41fc545ad6198adb3b4e2e5efda0bb353817584e3494f73608534b70",
+        "size": 168540
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -307.1,
+          -313.5,
+          -128
+        ],
+        [
+          -272.6,
+          -242.9,
+          20.1
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2787.8,
+          -85,
+          0
+        ],
+        [
+          2897.7,
+          49.4,
+          1728
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "gon-1-0",
+    "label": "GON1",
+    "chapter": "Gonarch's Lair",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "d62ab61e91001ee38499f32ac8ba146b67c7999d5b3ef21121a8a3502048fa91",
+        "size": 166379
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2787.8,
+          -85,
+          0
+        ],
+        [
+          2897.7,
+          49.4,
+          1729
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1777.7,
+          568,
+          -181.7
+        ],
+        [
+          -1342.5,
+          630.3,
+          160
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "gon-2-0",
+    "label": "GON2",
+    "chapter": "Gonarch's Lair",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "9c5ad21eef60669e4ba81a66d62c6ed51d035084b0390676ad3290ed171ae86b",
+        "size": 85570
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          801.1,
+          -550,
+          -64
+        ],
+        [
+          1199.7,
+          -505.8,
+          262
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1660.1,
+          1437,
+          -366.9
+        ],
+        [
+          -900.2,
+          1700.3,
+          -326
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "gon-3-0",
+    "label": "GON3",
+    "chapter": "Gonarch's Lair",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "112a8b6e79102845157fba7db34f57258745ea8598cbd6b2522200c68c030974",
+        "size": 140794
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -160,
+          -590.7,
+          495.1
+        ],
+        [
+          150,
+          -163.6,
+          533.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -215,
+          -849.5,
+          0
+        ],
+        [
+          -13.5,
+          -709.5,
+          3312
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-1-0",
+    "label": "INT1",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "2f3d0a5a8060dfe124d00721c8e6872b0403d64e3383166da8f3c077894af738",
+        "size": 194972
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -215,
+          -849.5,
+          0
+        ],
+        [
+          -13.5,
+          -709.5,
+          3312
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1223.4,
+          -1765.1,
+          64
+        ],
+        [
+          1339.4,
+          -1657.3,
+          209.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-2-0",
+    "label": "INT2",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "668d3b8d38bcf68a4837a82fa8e0d9512bdfaf0240e2891cdb14e626917d6e0e",
+        "size": 171267
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1223.4,
+          -1765.1,
+          64
+        ],
+        [
+          1339.4,
+          -1657.3,
+          209.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1562.8,
+          -752.5,
+          -896
+        ],
+        [
+          -1492.9,
+          -644.7,
+          -761
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-2-1",
+    "label": "INT2.1",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "668d3b8d38bcf68a4837a82fa8e0d9512bdfaf0240e2891cdb14e626917d6e0e",
+        "size": 171267
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1223.4,
+          -1765.1,
+          64
+        ],
+        [
+          1339.4,
+          -1657.3,
+          209.2
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -931.5,
+          -1.3,
+          78.9
+        ],
+        [
+          -861.9,
+          139.7,
+          274.3
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-2-2",
+    "label": "INT2.2",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "9372fa3db35709fc5767ee0d9f81ceb2fd6da52fb48dc148d0570e009994e0ef",
+        "size": 149278
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -931.5,
+          -1.3,
+          78.9
+        ],
+        [
+          -861.9,
+          139.7,
+          274.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          -1562.8,
+          -752.5,
+          -896
+        ],
+        [
+          -1492.9,
+          -644.7,
+          -761
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-3-0",
+    "label": "INT3",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "fd2092e32ff36d3b93a384fda44ad2bbbb205eb5e49b2e0342d2505063489450",
+        "size": 147670
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          -1559.4,
+          -751,
+          -896
+        ],
+        [
+          -1490.5,
+          -655.7,
+          -763.3
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          129.1,
+          -2496,
+          -632.8
+        ],
+        [
+          272,
+          -2338.3,
+          -581
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-4-0",
+    "label": "INT4",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f488b5aff416beebce64d697c233b193e30ff5ea80c77ca4dcd361f9cf2904a2",
+        "size": 217505
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          129.1,
+          -2496,
+          -632.8
+        ],
+        [
+          272,
+          -2338.3,
+          -581
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1024.8,
+          -1248,
+          -447.6
+        ],
+        [
+          1045.9,
+          -1184,
+          -408
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-4-1",
+    "label": "INT4.1",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "f488b5aff416beebce64d697c233b193e30ff5ea80c77ca4dcd361f9cf2904a2",
+        "size": 217505
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          129.1,
+          -2496,
+          -632.8
+        ],
+        [
+          272,
+          -2338.3,
+          -581
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          856.2,
+          -2087.1,
+          -448
+        ],
+        [
+          921,
+          -1991.8,
+          -352
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-4-2",
+    "label": "INT4.2",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "882545de919d9d37a7b41bc3d87d705f79fb6c744db2d59d40aefc79d60a3301",
+        "size": 352022
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          856.2,
+          -2087.1,
+          -448
+        ],
+        [
+          921,
+          -1991.8,
+          -352
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1024.8,
+          -1248,
+          -447.6
+        ],
+        [
+          1045.9,
+          -1184,
+          -408
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-5-0",
+    "label": "INT5",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "86622c9e9938d23cadb24034cb0f354d74f2d708ffdd652c047ae5b098221d7e",
+        "size": 351978
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1483.2,
+          -1520,
+          -448
+        ],
+        [
+          1555.2,
+          -1449,
+          -411.4
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          1411,
+          871.7,
+          802.4
+        ],
+        [
+          1607.8,
+          1035.3,
+          2272
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "int-6-0",
+    "label": "INT6",
+    "chapter": "Interloper",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "71798e673105192ce44f9b9cc8b2fa6823a437a8570169288468cd049d3120f2",
+        "size": 143637
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          1411,
+          871.7,
+          802.4
+        ],
+        [
+          1607.8,
+          1035.3,
+          2272
+        ]
+      ]
+    },
+    "end": {
+      "corners": [
+        [
+          2868.2,
+          -1805.4,
+          -744
+        ],
+        [
+          3216,
+          -1513.1,
+          -581.2
+        ]
+      ]
+    },
+    "reference_time_ms": null
+  },
+  {
+    "id": "nihi-1-0",
+    "label": "NIHI1",
+    "chapter": "Nihilanth",
+    "pool": "hl1",
+    "game": "valve",
+    "saves": {
+      "won": {
+        "sha256": "ec99aea76bff1f173233d070e4733907ef1489b2859efc130aa017387c429fd3",
+        "size": 75713
+      }
+    },
+    "start": {
+      "type": "trigger",
+      "corners": [
+        [
+          2868.2,
+          -1805.4,
+          -744
+        ],
+        [
+          3216,
+          -1513.1,
+          -581.2
+        ]
+      ]
+    },
+    "end": {
+      "type": "game_end"
+    },
+    "reference_time_ms": null
+  }
+]

@@ -22,12 +22,14 @@ bugs and things to be polished, but just letting you know that it's not a one-pr
 | `worker/web.js` | The routes the web pages call (§ Web routes): Steam sign-in, making and joining games, the host's actions. With `steam.js` (checking Steam's sign-in answers, names and avatars), `auth.js` (sessions in a cookie, the private test server's allowlist, which pages may call), `codes.js` (join codes), `settings.js` (checking a host's lobby options), `records.js` (each game in D1: its state, ending, players and results) and `db.js` (the D1 tables, made on first use). |
 | `rules/` | The standard rulesets made from the community's whitelist sheet, the handicap presets, and the list of extra files. |
 | `files/` | Extra files the game downloads, like the win sound, as listed in `rules/extra-files.json`. |
+| `catalog/` | The segment catalog, one file per pool: `hl1.json`, made from the Half-Life Practice Kit. |
 | `boards/` | Test boards: BXT's offline manifests, also used by `dev-game create`. |
 | `tools/dev-game.js` | Creates and runs games on the local server, standing in for the web pages. |
 | `tools/fake-bxt.js` | A scripted BXT: joins with a code, gets ready and plays runs. |
+| `tools/catalog` | Makes `catalog/hl1.json` from the practice kit: `npm run catalog -- "<Half-Life Practice Kit folder>"`. |
 | `tools/whitelist` | Makes `rules/` from the sheet (exported as .ods, the colors matter): `npm run whitelist -- Whitelist.ods rules`. |
 | `tools/echo.js` | WebSocket echo server for checking BXT's WebSockets (e.g. under Wine): `npm run echo`, listens on `ws://127.0.0.1:8765`. |
-| `test/` | Tests for `src/` and the whitelist tool. |
+| `test/` | Tests for `src/`, the catalog importer and the whitelist tool. |
 
 `src/` has no dependencies and no Cloudflare or Node APIs, so it runs in a Worker, in Node and in
 the browser.
@@ -60,22 +62,28 @@ It reloads by itself when a file in the repo changes, and connected games reconn
 ### 2. Make a game
 
 ```sh
-npm run dev-game -- create boards/scriptless.json --players red:naz,blue:bot
+# 25 random segments from the catalog, with the saves so BXT can download them
+npm run dev-game -- create catalog --players red:naz,blue:bot --saves "../Half-Life Practice Kit/SAVE"
 ```
 
-It prints the game's id and one line per player, with their steamid64 and join code:
+It prints the game's id, the board, and one line per player, with their steamid64 and join code:
 
 ```
 game cb3f1fd5683dfea9
+  A1 NIHI1    B1 AM5.2    C1 OAR2.1   D1 APP4     E1 BP4.1
+  ...
 red   naz              76561101611194284  bxt_bingo_join NJ33-CC
 blue  bot              76561107401299059  bxt_bingo_join R58K-AD
 ```
 
 Every `create` makes a new game, with new steamid64s for the players, so use the ones it just
-printed. `boards/` has three test boards (§ Offline play below). The options:
+printed. Instead of `catalog`, a board file works too: `boards/` has the three test boards
+(§ Offline play below). The options:
 
 | Option | What it does |
 |---|---|
+| `--pools hl1` | Only segments from these pools (with `catalog`). |
+| `--segments nihi-1-0,oar-2-1` | These segments first, from A1 on, and the rest at random (with `catalog`). |
 | `--players red:naz,blue:bot` | Players to add, as `team:name`. `none:name` adds one without a team. |
 | `--ruleset scripted` | The rules: `scriptless` (the default) or `scripted`, from `rules/`. |
 | `--saves <folder>` | Uploads the board's saves from this folder (e.g. `valve_WON/SAVE`), so BXT can download the ones a player doesn't have. |
@@ -104,8 +112,11 @@ npm run dev-game -- create boards/scriptless.json --players red:naz,blue:bot --s
 # Scripted rules, lockout, no time limit, labels hidden until the start
 npm run dev-game -- create boards/scripted.json --ruleset scripted --players red:naz,blue:bot --settings lockout=true,timeLimitMs=null,hideLabels=true
 
-# With the saves, so BXT downloads the ones you don't have
-npm run dev-game -- create boards/scriptless.json --players red:naz --saves C:/sw/HL2005WON/Half-Life/valve_WON/SAVE
+# Nihilanth on A1, to test a segment that ends with the game
+npm run dev-game -- create catalog --segments nihi-1-0 --players red:naz --saves "../Half-Life Practice Kit/SAVE"
+
+# One of the test boards, with the saves from your game's SAVE folder
+npm run dev-game -- create boards/scriptless.json --players red:naz --saves ../valve_WON/SAVE
 ```
 
 ### 3. Join
@@ -244,8 +255,19 @@ one online game with that board, as BXT downloads them then. The saves aren't in
 they're the practice kit's.
 
 The boards carry a copy of the rules from `rules/`. `npm run whitelist` doesn't update them, so
-copy the new rules in when the whitelist changes. The catalog importer (BINGO.md §9, step 0.2)
-will make boards from the whole practice kit and replace these.
+copy the new rules in when the whitelist changes. Online games draw from the catalog instead.
+
+## The catalog
+
+`catalog/hl1.json` has every segment of the Half-Life Practice Kit that bingo can use (197), with
+its triggers, label, chapter and save hash. To make it again, e.g. after the kit changes:
+
+```sh
+npm run catalog -- "../Half-Life Practice Kit"
+```
+
+It lists the cfgs it left out and why. A segment whose save or triggers changed should get a new
+id (BINGO.md §3.1), as the leaderboards key times by segment id.
 
 ## Protocol basics
 

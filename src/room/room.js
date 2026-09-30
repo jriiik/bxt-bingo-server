@@ -7,9 +7,9 @@
 import { Game } from "../game/game.js";
 import { ALL_TILES, isTeam, tileIndex } from "../protocol/ids.js";
 import { PROTOCOL_VERSION } from "../protocol/messages.js";
-import { isSafeExtraPath } from "../protocol/segment.js";
+import { DEFAULT_GAME, isSafeExtraPath } from "../protocol/segment.js";
 import { applyHandicaps } from "../rules/handicaps.js";
-import { cleanName, endingText, formatClock, resultText } from "./format.js";
+import { cleanName, endingText, formatClock, joinText, kickText, leaveText, resultText } from "./format.js";
 
 /**
  * @typedef {import("../protocol/ids.js").Team} Team
@@ -86,6 +86,8 @@ export class Changes {
   roundStart = false;
   /** Send `game_over` to everyone */
   gameOver = false;
+  /** Send `tiles` to the pages, e.g. when hidden labels are revealed */
+  tiles = false;
   /**
    * Players who need their `manifest` again
    * @type {Set<string>}
@@ -96,6 +98,11 @@ export class Changes {
    * @type {string[]}
    */
   events = [];
+  /**
+   * Texts for `event`, to everyone but one player, e.g. that they joined
+   * @type {{ text: string, except: string }[]}
+   */
+  othersEvents = [];
   /**
    * Messages for one player's BXT
    * @type {{ steamid64: string, message: ServerMessage }[]}
@@ -161,7 +168,14 @@ export class Room {
     if (tiles.length !== ALL_TILES.length || new Set(tiles.map((t) => tileIndex(t.id))).size !== ALL_TILES.length) {
       throw new RoomError("bad_request", `the board needs each of the ${ALL_TILES.length} tiles once`);
     }
+    // Nobody can switch games in the middle of a match
+    const games = [...new Set(tiles.map((t) => t.segment.game ?? DEFAULT_GAME))];
+    if (games.length > 1) {
+      throw new RoomError("bad_request", `a board is one game, this one has segments from ${games.join(", ")}`);
+    }
     this.id = id;
+    /** The game folder the board is played in, e.g. `valve` */
+    this.gameFolder = games[0];
     this.settings = Object.freeze({
       // On unless it's given
       redoOwnTile: settings.redoOwnTile ?? true,
@@ -352,6 +366,7 @@ export class Room {
     }
     this.#stopAttempts(steamid64);
     changes.close.push({ steamid64, code: ban ? 4004 : 4001, reason: ban ? "banned" : "kicked" });
+    changes.events.push(kickText(player.name, ban));
     changes.lobby = changes.save = true;
     this.#boardChanged(changes);
     return changes;
@@ -384,8 +399,9 @@ export class Room {
    * The BXT socket of a player opened or closed
    * @param {string} steamid64
    * @param {boolean} connected
+   * @param {"left" | "lost" | null} [how] How it closed, for telling the others, `null` tells nobody
    */
-  setConnected(steamid64, connected) {
+  setConnected(steamid64, connected, how = null) {
     const changes = new Changes();
     const player = this.players[steamid64];
     if (player && player.connected !== connected) {
@@ -394,6 +410,10 @@ export class Room {
       player.connected = connected;
       this.#boardChanged(changes);
       changes.lobby = changes.save = true;
+      // Like joins, not once the game is over
+      if (!connected && how && this.state !== "finished") {
+        changes.othersEvents.push({ text: leaveText(player.name, how), except: steamid64 });
+      }
     }
     return changes;
   }
@@ -442,6 +462,7 @@ export class Room {
     this.startsAt = now + this.settings.countdownMs;
     // The labels come with round_start, and are in the manifest for anyone who connects later
     changes.roundStart = changes.lobby = changes.alarm = changes.save = true;
+    changes.tiles = this.settings.hideLabels;
     this.#boardChanged(changes);
     return changes;
   }
@@ -460,6 +481,8 @@ export class Room {
     } else {
       this.game.endByHost(0);
     }
+    // Ended in the lobby: hidden labels are shown now
+    changes.tiles = this.settings.hideLabels && this.state === "lobby";
     this.#finish(changes);
     return changes;
   }
@@ -612,6 +635,11 @@ export class Room {
     }
 
     const changes = new Changes();
+    // The others are told, but not once the game is over
+    // engineBuild is only null before the player's first hello
+    if (this.state !== "finished") {
+      changes.othersEvents.push({ text: joinText(player.name, player.team, player.engineBuild !== null), except: steamid64 });
+    }
     if (player.engineBuild !== hello.engine_build) {
       player.ready = false;
     }
@@ -877,10 +905,32 @@ export class Room {
     );
   }
 
+  /** With hideLabels, nobody sees which segment is where until the start */
+  #labelsHidden() {
+    return this.settings.hideLabels && this.state === "lobby";
+  }
+
+  /**
+   * Which segment is on each tile, for the pages. All null while the labels are hidden
+   * @returns {import("../protocol/messages.js").TileInfo[]}
+   */
+  tileInfo() {
+    const hidden = this.#labelsHidden();
+    return ALL_TILES.map((id) => {
+      const s = this.tiles[id];
+      return { id, label: hidden ? null : s.label, segment: hidden ? null : s.id, chapter: hidden ? null : s.chapter };
+    });
+  }
+
+  /** @returns {import("../protocol/messages.js").TilesMessage} */
+  tilesMessage() {
+    return { type: "tiles", tiles: this.tileInfo() };
+  }
+
   /** @param {Player} player */
   #manifestTiles(player) {
     const build = player.engineBuild ?? "won";
-    const hidden = this.settings.hideLabels && this.state === "lobby";
+    const hidden = this.#labelsHidden();
     return ALL_TILES.map((id) => {
       const s = this.tiles[id];
       return { id, label: hidden ? null : s.label, save: s.saves[build], start: s.start, end: s.end };
@@ -909,6 +959,7 @@ export class Room {
       tiles: this.#manifestTiles(player),
       extra_files: this.extraFiles,
       files_url: this.filesUrl,
+      game: this.gameFolder,
     };
   }
 
@@ -1009,6 +1060,7 @@ export class Room {
     return {
       id: this.id,
       settings: this.settings,
+      tiles: this.tileInfo(),
       leaderboards: this.leaderboards(),
       lobby: this.lobbyMessage(),
       // For the host page's unban buttons

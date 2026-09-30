@@ -61,6 +61,36 @@ export function resultText(verdict, team, label, timeMs, name) {
   return `${TEAM(team)} ${verb} ${label} — ${formatTime(timeMs)} (${name})`;
 }
 
+/**
+ * A player's BXT joined the game, or came back to it
+ * @param {string} name
+ * @param {Team | null} team
+ * @param {boolean} again
+ */
+export function joinText(name, team, again) {
+  if (again) {
+    return `${name} rejoined`;
+  }
+  return team ? `${name} joined ${TEAM(team)}` : `${name} joined`;
+}
+
+/**
+ * A player's BXT closed its connection, or lost it (e.g. a crash)
+ * @param {string} name
+ * @param {"left" | "lost"} how
+ */
+export function leaveText(name, how) {
+  return how === "left" ? `${name} left` : `${name} lost connection`;
+}
+
+/**
+ * @param {string} name
+ * @param {boolean} ban
+ */
+export function kickText(name, ban) {
+  return `${name} was ${ban ? "banned" : "kicked"}`;
+}
+
 /** @param {Readonly<Ending>} ending */
 export function endingText(ending) {
   const winner = ending.winner && TEAM(ending.winner);

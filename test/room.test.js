@@ -139,6 +139,7 @@ test("joining: full, locked, banned, finished", () => {
   assert.equal(room.players[RED].name, "renamed");
   const kicked = room.kick(BLUE, true);
   assert.deepEqual(kicked.close, [{ steamid64: BLUE, code: 4004, reason: "banned" }]);
+  assert.deepEqual(kicked.events, ["b was banned"]);
   assert.throws(() => room.addPlayer({ steamid64: BLUE, name: "b", team: "blue" }), /banned/);
   assert.deepEqual(room.snapshot(0).banned, [BLUE]);
   room.unban(BLUE);
@@ -146,10 +147,36 @@ test("joining: full, locked, banned, finished", () => {
   assert.throws(() => room.unban(BLUE), (e) => e instanceof RoomError && e.code === "unknown_player");
   room.addPlayer({ steamid64: BLUE, name: "b", team: "blue" });
   assert.equal(room.players[BLUE].team, "blue");
-  room.kick(BLUE, false);
+  assert.deepEqual(room.kick(BLUE, false).events, ["b was kicked"]);
   room.lock(true);
   assert.throws(() => room.addPlayer({ steamid64: RED2, name: "c", team: "red" }), /locked/);
   assert.throws(() => room.addPlayer({ steamid64: "123", name: "c", team: "red" }), /17 digits/);
+});
+
+test("the others are told when a player joins, rejoins or leaves, until the game is over", () => {
+  const room = makeRoom();
+  room.addPlayer({ steamid64: RED, name: "a", team: "red" });
+  room.addPlayer({ steamid64: BLUE, name: "b", team: null });
+  const hello = { type: /** @type {const} */ ("hello"), protocol: 1, bxt_version: "t", engine_build: "won", dll_sha256: null, steamid64: null };
+  /** @param {string} id */
+  const joined = (id) => {
+    const result = room.hello(id, hello, "tok", T0);
+    assert.ok("changes" in result);
+    return result.changes.othersEvents;
+  };
+  assert.deepEqual(joined(RED), [{ text: "a joined RED", except: RED }]);
+  assert.deepEqual(joined(BLUE), [{ text: "b joined", except: BLUE }]);
+  assert.deepEqual(joined(RED), [{ text: "a rejoined", except: RED }]);
+  room.setConnected(RED, true);
+  assert.deepEqual(room.setConnected(RED, false, "left").othersEvents, [{ text: "a left", except: RED }]);
+  room.setConnected(RED, true);
+  assert.deepEqual(room.setConnected(RED, false, "lost").othersEvents, [{ text: "a lost connection", except: RED }]);
+  room.setConnected(RED, true);
+  assert.deepEqual(room.setConnected(RED, false).othersEvents, []);
+  room.end(T0);
+  assert.deepEqual(joined(RED), []);
+  room.setConnected(RED, true);
+  assert.deepEqual(room.setConnected(RED, false, "left").othersEvents, []);
 });
 
 test("start needs everyone ready, unless forced", () => {
@@ -199,6 +226,43 @@ test("hidden labels come with round_start", () => {
   const shown = room.manifestFor(RED);
   assert.equal(shown.tiles[0].label, "S0");
   assert.equal(shown.manifest_hash, hidden.manifest_hash, "revealing labels doesn't make players download again");
+});
+
+test("a board is one game, and the manifest says which", () => {
+  const room = makeRoom();
+  room.addPlayer({ steamid64: RED, name: "a", team: "red" });
+  assert.equal(room.manifestFor(RED).game, "valve", "segments without a game are HL1's");
+
+  const opfor = makeTiles().map((t) => ({ ...t, segment: { ...t.segment, pool: "opfor", game: "gearbox" } }));
+  const gearbox = new Room({ id: "g", settings: {}, tiles: opfor, ruleset: scriptless, handicapPresets: presets });
+  gearbox.addPlayer({ steamid64: RED, name: "a", team: "red" });
+  assert.equal(gearbox.manifestFor(RED).game, "gearbox");
+
+  const mixed = opfor.map((t, i) => (i === 0 ? makeTiles()[0] : t));
+  assert.throws(
+    () => new Room({ id: "g", settings: {}, tiles: mixed, ruleset: scriptless, handicapPresets: presets }),
+    (e) => e instanceof RoomError && /one game/.test(e.message),
+  );
+});
+
+test("the pages get which segment is on each tile, hidden like the labels", () => {
+  const room = makeRoom({ hideLabels: true });
+  room.addPlayer({ steamid64: RED, name: "a", team: "red" });
+  assert.deepEqual(room.snapshot(T0).tiles[0], { id: "A1", label: null, segment: null, chapter: null });
+  assert.equal(room.tilesMessage().tiles.length, 25);
+  const started = room.start(T0, true);
+  assert.equal(started.tiles, true, "sent again at the reveal");
+  assert.deepEqual(room.tilesMessage(), { type: "tiles", tiles: room.snapshot(T0).tiles });
+  assert.deepEqual(room.snapshot(T0).tiles[7], { id: "C2", label: "S7", segment: "seg-7", chapter: "Test" });
+
+  const shown = makeRoom();
+  shown.addPlayer({ steamid64: RED, name: "a", team: "red" });
+  assert.equal(shown.tileInfo()[0].segment, "seg-0");
+  assert.equal(shown.start(T0, true).tiles, false, "nothing to reveal");
+
+  const ended = makeRoom({ hideLabels: true });
+  assert.equal(ended.end(T0).tiles, true, "ending in the lobby shows them too");
+  assert.equal(ended.tileInfo()[0].label, "S0");
 });
 
 test("a capture: ack, event, board", () => {

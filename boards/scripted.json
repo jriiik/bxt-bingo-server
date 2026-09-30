@@ -1,6 +1,7 @@
 {
  "type": "manifest",
  "manifest_hash": "test-board-1-scripted",
+ "game": "valve",
  "ruleset": {
   "cvars": [
    {
