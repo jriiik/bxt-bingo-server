@@ -8,7 +8,8 @@
 //   GET  /api/me[?game=<id>]                    who is signed in, and whether they host / play that game
 //   GET  /api/me/games                          the games they host or are in, newest first
 //   GET  /api/boards                            the boards a game can be made with
-//   POST /api/games                             make a game: { board, settings }, the maker hosts it
+//   POST /api/games                             make a game: { board, settings }, the maker hosts it;
+//                                               a random board also takes { ruleset, pools }
 //   POST /api/games/<id>/join                   join a team: { team }, gives a join code
 //   POST /api/games/<id>/code                   a new join code
 //   POST /api/games/<id>/host/<action>          the host's actions, see HOST_ACTIONS
@@ -19,6 +20,7 @@ import scripted from "../rules/won-scripted.json";
 import scriptless from "../rules/won-scriptless.json";
 import scriptedBoard from "../boards/scripted.json";
 import scriptlessBoard from "../boards/scriptless.json";
+import hl1Catalog from "../catalog/hl1.json";
 import { checkHandicapPresets } from "../src/rules/handicaps.js";
 import {
   LOGIN_COOKIE,
@@ -36,6 +38,7 @@ import {
   sameSecret,
   startSession,
 } from "./auth.js";
+import { boardTiles, catalogPools, drawBoard } from "./boards.js";
 import { CODE_LIFETIME_MS, issueCode } from "./codes.js";
 import { ensureSchema, sweep } from "./db.js";
 import { checkSettings } from "./settings.js";
@@ -53,8 +56,16 @@ const RULESETS = /** @type {any} */ ({ scriptless, scripted });
 const PRESETS = checkHandicapPresets(handicapPresets);
 
 /**
- * The boards a game can be made with, until the segment catalog (BINGO.md §3.1) exists:
- * the test boards, BXT's offline manifests
+ * The segment catalog, every pool's file (BINGO.md §3.1)
+ * @type {import("../src/protocol/segment.js").Segment[]}
+ */
+const CATALOG = /** @type {any} */ (hl1Catalog);
+
+// The board drawn from the catalog, 25 segments of the pools the host ticks, with the rules they pick
+const RANDOM_BOARD = "random";
+
+/**
+ * The test boards, BXT's offline manifests, each with its own rules
  * @type {Record<string, { name: string, ruleset: string, manifest: any }>}
  */
 const BOARDS = {
@@ -63,23 +74,11 @@ const BOARDS = {
 };
 
 /**
- * A board's tiles as the game wants them (the same as `dev-game create` makes from a manifest)
- * @param {any} manifest
+ * @param {string} board
+ * @param {string | null} [ruleset] A random board's rules
  */
-function boardTiles(manifest) {
-  return manifest.tiles.map((/** @type {any} */ t) => ({
-    id: t.id,
-    segment: {
-      id: String(t.label ?? t.id).toLowerCase(),
-      label: t.label ?? t.id,
-      chapter: "",
-      saves: { won: t.save },
-      start: t.start,
-      end: t.end,
-      reference_time_ms: null,
-    },
-  }));
-}
+const boardName = (board, ruleset) =>
+  board === RANDOM_BOARD ? (ruleset ? `Random board, ${ruleset}` : "Random board") : Object.hasOwn(BOARDS, board) ? BOARDS[board].name : board;
 
 // Largest request body the routes read
 const MAX_BODY_BYTES = 8192;
@@ -137,7 +136,10 @@ export async function webRoute(request, env, me, now) {
   } else if (parts[1] === "me" && parts[2] === "games" && parts.length === 3 && method === "GET") {
     response = await myGames(env, me);
   } else if (parts[1] === "boards" && parts.length === 2 && method === "GET") {
-    response = json(200, Object.entries(BOARDS).map(([id, b]) => ({ id, name: b.name, ruleset: b.ruleset })));
+    response = json(200, [
+      { id: RANDOM_BOARD, name: boardName(RANDOM_BOARD), ruleset: null, rulesets: Object.keys(RULESETS), pools: catalogPools(CATALOG) },
+      ...Object.entries(BOARDS).map(([id, b]) => ({ id, name: b.name, ruleset: b.ruleset })),
+    ]);
   } else if (parts[1] === "games" && method === "POST") {
     response = await gameAction(request, env, me, parts.slice(2), now);
   }
@@ -362,7 +364,7 @@ async function myGames(env, me) {
     games = await playerGames(env.DB, me.steamid64, MY_GAMES);
   }
   return json(200, {
-    games: games.map((g) => ({ ...g, board_name: Object.hasOwn(BOARDS, g.board) ? BOARDS[g.board].name : g.board })),
+    games: games.map((g) => ({ ...g, board_name: boardName(g.board, g.ruleset) })),
   });
 }
 
@@ -459,9 +461,25 @@ async function createGame(env, me, body, now) {
   if (await overLimit(env.CREATE_LIMIT, me.steamid64)) {
     return json(429, { error: "rate_limited", message: "too many games, wait a minute" });
   }
-  const board = typeof body.board === "string" && Object.hasOwn(BOARDS, body.board) ? BOARDS[body.board] : null;
-  if (!board) {
-    return json(400, { error: "bad_request", message: `board must be one of ${Object.keys(BOARDS).join(", ")}` });
+  /** @type {any[]} */
+  let tiles;
+  /** @type {string} */
+  let ruleset;
+  if (body.board === RANDOM_BOARD) {
+    if (typeof body.ruleset !== "string" || !Object.hasOwn(RULESETS, body.ruleset)) {
+      return json(400, { error: "bad_request", message: `ruleset must be one of ${Object.keys(RULESETS).join(", ")}` });
+    }
+    const drawn = drawBoard(CATALOG, body.pools);
+    if ("error" in drawn) {
+      return json(400, { error: "bad_request", message: drawn.error });
+    }
+    tiles = drawn.tiles;
+    ruleset = body.ruleset;
+  } else if (typeof body.board === "string" && Object.hasOwn(BOARDS, body.board)) {
+    tiles = boardTiles(BOARDS[body.board].manifest, CATALOG);
+    ruleset = BOARDS[body.board].ruleset;
+  } else {
+    return json(400, { error: "bad_request", message: `board must be one of ${[RANDOM_BOARD, ...Object.keys(BOARDS)].join(", ")}` });
   }
   const settings = checkSettings(body.settings ?? {});
   if (typeof settings === "string") {
@@ -471,8 +489,8 @@ async function createGame(env, me, body, now) {
   const result = await game(env, id).create({
     id,
     settings,
-    tiles: boardTiles(board.manifest),
-    ruleset: RULESETS[board.ruleset],
+    tiles,
+    ruleset: RULESETS[ruleset],
     handicapPresets: PRESETS,
     extraFiles,
   });
@@ -481,7 +499,7 @@ async function createGame(env, me, body, now) {
   }
   await ensureSchema(env.DB);
   await env.DB.prepare("INSERT INTO games (id, host, created, board, ruleset) VALUES (?, ?, ?, ?, ?)")
-    .bind(id, me.steamid64, now, String(body.board), board.ruleset)
+    .bind(id, me.steamid64, now, body.board, ruleset)
     .run();
   return json(200, { id });
 }

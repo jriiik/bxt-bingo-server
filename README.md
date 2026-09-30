@@ -196,8 +196,8 @@ need a signed-in player and must come from the pages: this Worker's own origin, 
 | `POST /auth/logout` | Ends the session. |
 | `GET /api/me[?game=<id>]` | Who is signed in, whether this is a private server, and for a game: whether they host it and their lobby entry. |
 | `GET /api/me/games` | The 50 latest games they host or are in: state, how it ended, tiles per team, board, players, their team. Up to 10 of them that D1 has as unfinished are checked with their game first, which writes its record again if D1 is behind. |
-| `GET /api/boards` | The boards a game can be made with. The test boards, until the segment catalog exists. |
-| `POST /api/games` | `{ board, settings }`: makes a game, hosted by whoever made it. The settings are checked key by key (`worker/settings.js`). |
+| `GET /api/boards` | The boards a game can be made with: `random` (with the catalog's pools and the rulesets) and the two test boards. |
+| `POST /api/games` | `{ board, settings }`: makes a game, hosted by whoever made it. The settings are checked key by key (`worker/settings.js`). A random board also takes `ruleset` (`scriptless` or `scripted`) and `pools` (e.g. `["hl1"]`): 25 different segments drawn from those pools (`worker/boards.js`, one game only). The test boards' tiles are the catalog's segments (same label, save and triggers), so they get the catalog's ids and chapters. |
 | `POST /api/games/<id>/join` | `{ team }` (`red`, `blue` or `null`): joins, or changes team before the start, and gives a join code for `bxt_bingo_join`. |
 | `POST /api/games/<id>/code` | A new join code for a player of the game. |
 | `POST /api/games/<id>/host/<action>` | The host only: `start` `{ force }`, `end`, `move` `{ steamid64, team }`, `kick` `{ steamid64, ban }`, `unban`, `lock` `{ locked }`, `handicaps` `{ steamid64, handicaps }`, `void` / `accept` `{ attempt_id }`. |

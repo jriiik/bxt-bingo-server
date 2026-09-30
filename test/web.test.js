@@ -9,6 +9,7 @@ import { ALL_TILES } from "../src/protocol/index.js";
 import { Room } from "../src/room/index.js";
 import { checkHandicapPresets } from "../src/rules/handicaps.js";
 
+import { boardTiles, catalogPools, drawBoard } from "../worker/boards.js";
 import { cookie, isAllowed, isLocalPath, isPageOrigin, isPrivate, readCookie, sameSecret, signedIn, startSession } from "../worker/auth.js";
 import { CODE_LIFETIME_MS, issueCode, redeemCode } from "../worker/codes.js";
 import { ensureSchema } from "../worker/db.js";
@@ -397,4 +398,71 @@ test("a player's games: the ones they host or are in, newest first", { skip: !sq
   assert.deepEqual((await playerGames(db, BLUE, 50)).map((g) => g.id), ["000000000000000c", "000000000000000b"]);
   assert.deepEqual((await playerGames(db, BLUE, 1)).map((g) => g.id), ["000000000000000c"]);
   assert.deepEqual(await playerGames(db, "76561190000000099", 50), []);
+});
+
+const catalog = JSON.parse(readFileSync(new URL("../catalog/hl1.json", import.meta.url), "utf8"));
+
+test("random boards: 25 different segments from the pools ticked, a game can be made with them", () => {
+  assert.deepEqual(catalogPools(catalog), [{ id: "hl1", name: "Half-Life campaign", game: "valve", segments: catalog.length }]);
+  const seen = new Set();
+  for (let i = 0; i < 50; i++) {
+    const drawn = drawBoard(catalog, ["hl1"]);
+    assert.ok("tiles" in drawn);
+    assert.deepEqual(drawn.tiles.map((t) => t.id), ALL_TILES);
+    assert.equal(new Set(drawn.tiles.map((t) => t.segment.id)).size, 25);
+    drawn.tiles.forEach((t) => seen.add(t.segment.id));
+    if (i === 0) {
+      const room = new Room({ id: "00000000000000aa", settings: {}, tiles: drawn.tiles, ruleset: scriptless, handicapPresets: presets });
+      assert.equal(room.gameFolder, "valve");
+      assert.ok(room.tileInfo().every((t) => t.label && t.segment && t.chapter));
+    }
+  }
+  // Random: 50 boards of 25 reach far more than 25 segments, and the catalog isn't reordered
+  assert.ok(seen.size > 150, `only ${seen.size} segments in 50 boards`);
+  assert.equal(catalog[0].id, "am-2-0");
+  // The same numbers, the same board
+  const fixed = () => drawBoard(catalog, ["hl1"], (n) => n - 1);
+  assert.deepEqual(fixed(), fixed());
+});
+
+test("random boards: pools checked", () => {
+  for (const pools of [undefined, null, "hl1", [], [1], ["hl1", 2], Array(21).fill("hl1")]) {
+    assert.equal(/** @type {any} */ (drawBoard(catalog, pools)).error, "pools must be a list of pool ids");
+  }
+  assert.match(/** @type {any} */ (drawBoard(catalog, ["hl1", "opfor"])).error, /^pools must be some of hl1$/);
+  assert.match(/** @type {any} */ (drawBoard(catalog, ["__proto__"])).error, /^pools must be some of/);
+  const small = catalog.slice(0, 24);
+  assert.equal(/** @type {any} */ (drawBoard(small, ["hl1"])).error, "these pools have 24 segments, a board needs 25");
+  const mixed = [...catalog.slice(0, 30), ...catalog.slice(30, 60).map((s) => ({ ...s, pool: "opfor", game: "gearbox" }))];
+  assert.equal(/** @type {any} */ (drawBoard(mixed, ["hl1", "opfor"])).error, "pools of different games can't be on one board");
+  assert.ok("tiles" in drawBoard(mixed, ["opfor"]));
+  // Pools of one game mix
+  const hazard = [...catalog.slice(0, 10), ...catalog.slice(10, 30).map((s) => ({ ...s, pool: "hazard-course" }))];
+  const both = drawBoard(hazard, ["hl1", "hazard-course"]);
+  assert.ok("tiles" in both && both.tiles.length === 25);
+});
+
+test("test boards: tiles the catalog has are its segments", () => {
+  for (const name of ["scriptless", "scripted"]) {
+    const manifest = JSON.parse(readFileSync(new URL(`../boards/${name}.json`, import.meta.url), "utf8"));
+    const tiles = boardTiles(manifest, catalog);
+    assert.equal(tiles.length, 25);
+    tiles.forEach((t, i) => {
+      assert.equal(t.id, manifest.tiles[i].id);
+      assert.equal(t.segment.label, manifest.tiles[i].label);
+      assert.ok(catalog.includes(t.segment), `${t.id} ${t.segment.label} not from the catalog`);
+    });
+    // Without a catalog: made up from the tile, as dev-game does
+    const bare = boardTiles(manifest, []);
+    assert.deepEqual(bare[0].segment, {
+      id: manifest.tiles[0].label.toLowerCase(),
+      label: manifest.tiles[0].label,
+      chapter: "",
+      game: "valve",
+      saves: { won: manifest.tiles[0].save },
+      start: manifest.tiles[0].start,
+      end: manifest.tiles[0].end,
+      reference_time_ms: null,
+    });
+  }
 });

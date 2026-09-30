@@ -141,7 +141,7 @@ export async function playerGames(db, steamid64, limit) {
   await ensureSchema(db);
   const { results } = await db
     .prepare(
-      `SELECT g.id AS id, g.created AS created, g.board AS board, g.state AS state, g.started AS started,
+      `SELECT g.id AS id, g.created AS created, g.board AS board, g.ruleset AS ruleset, g.state AS state, g.started AS started,
          g.finished AS finished, g.winner AS winner, g.reason AS reason, g.red_tiles AS red_tiles,
          g.blue_tiles AS blue_tiles, g.host = ?1 AS hosting, me.steamid64 IS NOT NULL AS joined, me.team AS team,
          (SELECT COUNT(*) FROM game_players p WHERE p.game_id = g.id) AS players
@@ -155,6 +155,7 @@ export async function playerGames(db, steamid64, limit) {
     id: String(g.id),
     created: Number(g.created),
     board: String(g.board),
+    ruleset: g.ruleset ?? null,
     state: String(g.state),
     started: g.started === null ? null : Number(g.started),
     finished: g.finished === null ? null : Number(g.finished),
