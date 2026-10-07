@@ -189,16 +189,42 @@ test("cookies and secrets", () => {
   assert.ok(!sameSecret("abc", "abcd"));
 });
 
-test("the private test server lets only the listed players in", () => {
+test("the private test server lets only the listed players in", async () => {
   const env = { PRIVATE: "true", ALLOWED_STEAMIDS: `${PLAYER}, 76561190000000012` };
   assert.ok(isPrivate(env));
-  assert.ok(isAllowed(env, PLAYER));
-  assert.ok(isAllowed(env, "76561190000000012"));
-  assert.ok(!isAllowed(env, "76561190000000000"));
+  assert.ok(await isAllowed(env, PLAYER));
+  assert.ok(await isAllowed(env, "76561190000000012"));
+  assert.ok(!(await isAllowed(env, "76561190000000000")));
   // Private with nobody listed lets nobody in
-  assert.ok(!isAllowed({ PRIVATE: "true" }, PLAYER));
+  assert.ok(!(await isAllowed({ PRIVATE: "true" }, PLAYER)));
   assert.ok(!isPrivate({}));
-  assert.ok(isAllowed({}, "76561190000000000"));
+  assert.ok(await isAllowed({}, "76561190000000000"));
+});
+
+test("with an ACCESS binding, it decides instead of the list", async () => {
+  const asked = [];
+  const ACCESS = { allowed: async (/** @type {string} */ id) => (asked.push(id), id === "76561190000000012") };
+  // Bound alone, the server is private
+  assert.ok(isPrivate({ ACCESS }));
+  assert.ok(await isAllowed({ ACCESS }, "76561190000000012"));
+  assert.ok(!(await isAllowed({ ACCESS }, PLAYER)));
+  // The list doesn't count then
+  assert.ok(!(await isAllowed({ PRIVATE: "true", ALLOWED_STEAMIDS: PLAYER, ACCESS }, PLAYER)));
+  assert.deepEqual(asked, ["76561190000000012", PLAYER, PLAYER]);
+  // Anything but true, or no answer at all: nobody gets in
+  assert.ok(!(await isAllowed({ ACCESS: { allowed: async () => "yes" } }, PLAYER)));
+  assert.ok(
+    !(await isAllowed(
+      {
+        ACCESS: {
+          allowed: async () => {
+            throw new Error("down");
+          },
+        },
+      },
+      PLAYER,
+    )),
+  );
 });
 
 test("pages that may call the routes", () => {
@@ -237,6 +263,9 @@ test("sessions: the cookie's token finds the player until it expires", { skip: !
   assert.equal(await signedIn(withCookie(token), env, NOW + 31 * 24 * 3600_000), null);
   // Taken off the private server's list: signed out
   assert.equal(await signedIn(withCookie(token), { DB: db, PRIVATE: "true", ALLOWED_STEAMIDS: "76561190000000012" }, NOW), null);
+  // Or no longer allowed by ACCESS
+  assert.equal(await signedIn(withCookie(token), { DB: db, ACCESS: { allowed: async () => false } }, NOW), null);
+  assert.equal((await signedIn(withCookie(token), { DB: db, ACCESS: { allowed: async () => true } }, NOW))?.steamid64, PLAYER);
   // A new sign-in refreshes the name
   await startSession(db, { steamid64: PLAYER, name: "jriiik2", avatar: null }, NOW + 5000);
   assert.equal((await signedIn(withCookie(token), env, NOW + 6000))?.name, "jriiik2");

@@ -64,13 +64,19 @@ export function sameSecret(a, b) {
 }
 
 // The private test server (BINGO-WEB.md §7.6): only the players on the list can sign in and see
-// anything. PRIVATE=true with an empty list lets nobody in
+// anything. PRIVATE=true with an empty list lets nobody in. With ACCESS bound (a service binding
+// to another Worker whose allowed(steamid64) RPC method says who may), that Worker decides
+// instead of the list, at every sign-in and request; when it can't be asked, nobody gets in
 
 /**
- * @param {{ PRIVATE?: string, ALLOWED_STEAMIDS?: string }} env
+ * @typedef {{ allowed(steamid64: string): Promise<boolean> }} Access
+ */
+
+/**
+ * @param {{ PRIVATE?: string, ALLOWED_STEAMIDS?: string, ACCESS?: Access }} env
  */
 export function isPrivate(env) {
-  return env.PRIVATE === "true" || allowList(env).length > 0;
+  return env.PRIVATE === "true" || !!env.ACCESS || allowList(env).length > 0;
 }
 
 /** @param {{ ALLOWED_STEAMIDS?: string }} env */
@@ -82,11 +88,23 @@ function allowList(env) {
 }
 
 /**
- * @param {{ PRIVATE?: string, ALLOWED_STEAMIDS?: string }} env
+ * @param {{ PRIVATE?: string, ALLOWED_STEAMIDS?: string, ACCESS?: Access }} env
  * @param {string} steamid64
+ * @returns {Promise<boolean>}
  */
-export function isAllowed(env, steamid64) {
-  return !isPrivate(env) || allowList(env).includes(steamid64);
+export async function isAllowed(env, steamid64) {
+  if (!isPrivate(env)) {
+    return true;
+  }
+  if (env.ACCESS) {
+    try {
+      return (await env.ACCESS.allowed(steamid64)) === true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+  return allowList(env).includes(steamid64);
 }
 
 /**
@@ -117,7 +135,7 @@ export async function startSession(db, player, now) {
  * The signed-in player, from the session cookie, or null
  * On a private server, a player taken off the list is signed out
  * @param {Request} request
- * @param {{ DB: D1Database, PRIVATE?: string, ALLOWED_STEAMIDS?: string }} env
+ * @param {{ DB: D1Database, PRIVATE?: string, ALLOWED_STEAMIDS?: string, ACCESS?: Access }} env
  * @param {number} now
  * @returns {Promise<SignedIn | null>}
  */
@@ -135,7 +153,7 @@ export async function signedIn(request, env, now) {
   )
     .bind(await sha256Hex(token), now)
     .first();
-  return row && isAllowed(env, row.steamid64) ? row : null;
+  return row && (await isAllowed(env, row.steamid64)) ? row : null;
 }
 
 /**

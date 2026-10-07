@@ -223,7 +223,10 @@ server.
 
 `env.staging` in `wrangler.toml` is a private copy at `bingo-staging.jrik.dev`, with its own
 storage, for real games between testers. Only the SteamIDs in its `ALLOWED_STEAMIDS` secret can sign
-in, and without signing in nothing but BXT's socket, the files and the sign-in itself answers. It
+in, and without signing in nothing but BXT's socket, the files and the sign-in itself answers. With
+an `ACCESS` service binding (another Worker of the same account with an RPC method
+`allowed(steamid64)`), that Worker decides instead of the secret, at every sign-in and request, and
+nobody gets in while it can't be asked; this one asks the member list of jrik.dev. It
 serves the web pages too, from the `bingo-pages-staging` bucket (`bingo/index.html`,
 `bingo/game/index.html`...), after checking who is signed in; putting a new file there updates a page
 without a deploy. The first deploy makes the D1 database, and the Worker makes its tables on first
@@ -234,7 +237,7 @@ npx wrangler login
 npx wrangler r2 bucket create bingo-files-staging
 npx wrangler r2 bucket create bingo-pages-staging
 npx wrangler deploy --env staging
-npx wrangler secret put ALLOWED_STEAMIDS --env staging   # e.g. 76561197960000000,76561198000000000
+npx wrangler secret put ALLOWED_STEAMIDS --env staging   # without ACCESS: e.g. 76561197960000000,76561198000000000
 npx wrangler secret put STEAM_API_KEY --env staging      # from steamcommunity.com/dev/apikey
 # The pages
 npx wrangler r2 object put bingo-pages-staging/bingo/index.html --file <page> --content-type "text/html; charset=utf-8" --remote

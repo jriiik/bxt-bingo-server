@@ -284,7 +284,7 @@ async function steamCallback(request, env, url, now) {
   if (!fresh) {
     return page(400, "Sign-in didn't work", "That sign-in was already used. Try again.", clearLogin);
   }
-  if (!isAllowed(env, check.steamid64)) {
+  if (!(await isAllowed(env, check.steamid64))) {
     return page(403, "Private test server", "Only invited players can use this server.", clearLogin);
   }
 

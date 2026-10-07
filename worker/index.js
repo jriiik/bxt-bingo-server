@@ -38,8 +38,9 @@ export { GameRoom } from "./game-room.js";
  * @property {R2Bucket} [PAGES] Or the web pages in a bucket, by path (e.g. `bingo/game/index.html`)
  * @property {string} [DEV_ROUTES]
  * @property {string} [STEAM_API_KEY] Secret: Steam names and avatars
- * @property {string} [PRIVATE] "true": only ALLOWED_STEAMIDS may sign in and see anything
+ * @property {string} [PRIVATE] "true": only ALLOWED_STEAMIDS (or whom ACCESS allows) may sign in and see anything
  * @property {string} [ALLOWED_STEAMIDS] Comma-separated SteamID64s, for the private test server
+ * @property {import("./auth.js").Access} [ACCESS] A service binding deciding who may, instead of ALLOWED_STEAMIDS
  * @property {string} [PAGE_ORIGINS] Comma-separated origins of pages served elsewhere, e.g. https://jrik.dev
  * @property {RateLimit} [LOGIN_LIMIT]
  * @property {RateLimit} [JOIN_LIMIT]

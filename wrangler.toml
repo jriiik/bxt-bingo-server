@@ -56,10 +56,11 @@ name = "ACTION_LIMIT"
 namespace_id = "2005"
 simple = { limit = 60, period = 60 }
 
-# The private test server at bingo-staging.jrik.dev: its own storage, and only the players in the
-# ALLOWED_STEAMIDS secret can sign in or see anything. It serves the web pages too, from the
-# bingo-pages-staging bucket (README: The private test server)
-# Secrets (npx wrangler secret put <NAME> --env staging): ALLOWED_STEAMIDS, STEAM_API_KEY
+# The private test server at bingo-staging.jrik.dev: its own storage, and only the players that
+# jrik.dev's member list allows (the ACCESS binding below; ALLOWED_STEAMIDS isn't used while it's
+# there) can sign in or see anything. It serves the web pages too, from the bingo-pages-staging
+# bucket (README: The private test server)
+# Secrets (npx wrangler secret put <NAME> --env staging): STEAM_API_KEY
 [env.staging]
 name = "bxt-bingo-staging"
 routes = [{ pattern = "bingo-staging.jrik.dev", custom_domain = true }]
@@ -81,6 +82,13 @@ bucket_name = "bingo-files-staging"
 [[env.staging.r2_buckets]]
 binding = "PAGES"
 bucket_name = "bingo-pages-staging"
+
+# Who may sign in: the members Worker of jrik.dev (its BingoAccess entrypoint: allowed(steamid64)),
+# where the owner ticks a box per player
+[[env.staging.services]]
+binding = "ACCESS"
+service = "jrik-members"
+entrypoint = "BingoAccess"
 
 [[env.staging.ratelimits]]
 name = "LOGIN_LIMIT"
